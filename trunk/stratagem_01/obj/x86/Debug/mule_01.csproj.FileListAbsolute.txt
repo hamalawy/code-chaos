@@ -1,9 +1,0 @@
-C:\Projects\mule_01\bin\Debug\mule_01.exe
-C:\Projects\mule_01\bin\Debug\mule_01.pdb
-C:\Projects\mule_01\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Projects\mule_01\obj\x86\Debug\mule_01.frmMuleBoard.resources
-C:\Projects\mule_01\obj\x86\Debug\mule_01.Properties.Resources.resources
-C:\Projects\mule_01\obj\x86\Debug\GenerateResource.read.1.tlog
-C:\Projects\mule_01\obj\x86\Debug\GenerateResource.write.1.tlog
-C:\Projects\mule_01\obj\x86\Debug\mule_01.exe
-C:\Projects\mule_01\obj\x86\Debug\mule_01.pdb
