@@ -59,12 +59,5 @@ namespace Strategem.Properties {
                 resourceCulture = value;
             }
         }
-        
-        internal static System.Drawing.Bitmap tilebase {
-            get {
-                object obj = ResourceManager.GetObject("tilebase", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
