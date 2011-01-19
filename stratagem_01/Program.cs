@@ -8,6 +8,9 @@ using Strategem.Runtime;
 
 namespace Strategem
 {
+    /// <summary>
+    /// Entry to WinForm game
+    /// </summary>
     static class Program
     {
         #region Fields
