@@ -6,6 +6,16 @@ using System.Timers;
 
 namespace Engine_01.Interfaces
 {
+    /// <summary>
+    /// ITimeSyncedObject
+    ///     
+    ///     Creates an interface for objects that should be 
+    ///     time-synced with the engine. This is currently not
+    ///     being used.
+    ///     
+    ///     I hesitate to delete becaue there may be a use
+    ///     at some point.
+    /// </summary>
     public interface ITimeSyncedObject
     {
         #region Functions
