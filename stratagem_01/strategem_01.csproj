@@ -55,7 +55,9 @@
     <Compile Include="Runtime\Grid.cs" />
     <Compile Include="Runtime\Board.cs" />
     <Compile Include="Runtime\RandomGenerator.cs" />
-    <Compile Include="Form\Canvas.cs" />
+    <Compile Include="Form\Canvas.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form\frmGameWindow.cs">
       <SubType>Form</SubType>
     </Compile>
