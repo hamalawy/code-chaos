@@ -1,0 +1,11 @@
+C:\GameWorks\WinFormsGraphicsDevice\bin\Debug\Content\hudFont.xnb
+C:\GameWorks\WinFormsGraphicsDevice\bin\Debug\WinFormsGraphicsDevice.exe
+C:\GameWorks\WinFormsGraphicsDevice\bin\Debug\WinFormsGraphicsDevice.pdb
+C:\GameWorks\WinFormsGraphicsDevice\bin\Debug\ContentLibrary.dll
+C:\GameWorks\WinFormsGraphicsDevice\bin\Debug\ContentLibrary.pdb
+C:\GameWorks\WinFormsGraphicsDevice\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GameWorks\WinFormsGraphicsDevice\obj\x86\Debug\WinFormsGraphicsDevice.Properties.Resources.resources
+C:\GameWorks\WinFormsGraphicsDevice\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\GameWorks\WinFormsGraphicsDevice\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\GameWorks\WinFormsGraphicsDevice\obj\x86\Debug\WinFormsGraphicsDevice.exe
+C:\GameWorks\WinFormsGraphicsDevice\obj\x86\Debug\WinFormsGraphicsDevice.pdb

@@ -1,0 +1,8 @@
+C:\GameWorks\GameLib_01\bin\x86\Debug\GameLib_01.dll
+C:\GameWorks\GameLib_01\bin\x86\Debug\GameLib_01.pdb
+C:\GameWorks\GameLib_01\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GameWorks\GameLib_01\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\GameWorks\GameLib_01\obj\x86\Debug\GameLib_01.dll
+C:\GameWorks\GameLib_01\obj\x86\Debug\GameLib_01.pdb
+C:\GameWorks\GameLib_01\bin\x86\Debug\Engine_01.dll
+C:\GameWorks\GameLib_01\bin\x86\Debug\Engine_01.pdb

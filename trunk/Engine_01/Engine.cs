@@ -1,0 +1,190 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+//
+using Engine_01.Runtime;
+using Engine_01.Interfaces;
+
+namespace Engine_01
+{
+    public static class Engine
+    {
+        #region Fields
+        private static bool isRunning;
+        private static CancellationTokenSource cancelSource;
+        private static Task engineStartProcess;
+
+        private static EngineClock engineClock;
+        private static TimeSpan elapsedRuntime;
+        private static long startTimeStamp;
+
+        private static List<ITimeSyncedObject> activeTasks;
+        #endregion
+
+        #region Init
+        static Engine ( )
+        {
+            activeTasks = new List<ITimeSyncedObject> ( );
+            engineClock = EngineClock.Clock;
+        }
+        #endregion
+
+        #region Functions
+        public static Boolean Start ( )
+        {
+            //  start engine on worker thread
+            if (cancelSource == null)
+            {
+                Console.WriteLine ( "[{0}] Engine starting",
+                    engineClock.ToString ( ) );
+
+                cancelSource = new CancellationTokenSource ( );
+                engineStartProcess = Task.Factory.StartNew ( ( ) => startEngine ( cancelSource.Token ),
+                    cancelSource.Token, TaskCreationOptions.LongRunning, TaskScheduler.Default );
+
+                if (!cancelSource.Token.IsCancellationRequested)
+                {
+                    isRunning = true;
+                    engineClock.ClockStarted += 
+                        new EventHandler<ClockStartedEventArgs> ( engineClock_ClockStarted );
+                    engineClock.ClockStopped += new 
+                        EventHandler<ClockStoppedEventArgs> ( engineClock_ClockStopped );
+                }
+            }
+
+            if (!isRunning)
+            {
+                Console.WriteLine ( "[{0}] Engine failed to start",
+                    engineClock.ToString ( ) );
+            }
+
+            return isRunning;
+        }
+
+        public static void Stop ( )
+        {
+            Console.WriteLine ( "[{0}] Engine stopping",
+                engineClock.ToString() );
+
+            stopEngine ( );
+
+            Console.WriteLine ( "[{0}] Engine stopped: runtime {1}",
+                engineClock.ToString(),
+                engineClock.Elapsed );
+        }
+
+        public static void ResetEngine ( )
+        {
+            Stop ( );
+            Start ( );
+        }
+
+        public static Action StartTimerTask ( Action action )
+        {
+            //if (activeTasks.ContainsKey ( action ))
+            //{
+            //    StopTimerTask ( action );
+            //}
+
+            //Timer timer = new Timer ( new TimerCallback ( runTask ), action, 0, 250 );
+            //activeTasks.Add ( action, timer );
+
+            return action;
+        }
+
+        public static void StopTimerTask ( Action action )
+        {
+            //if (activeTasks.ContainsKey ( action ))
+            //{
+            //    activeTasks[ action ].Change ( Timeout.Infinite, Timeout.Infinite );
+            //    activeTasks.Remove ( action );
+            //}
+        }
+
+        //  =======================================================
+        //  private functions
+        private static void startEngine ( CancellationToken token )
+        {
+            token.ThrowIfCancellationRequested ( );
+
+            //  main engine loop
+            while (!token.IsCancellationRequested)
+            {
+                if (engineClock.Status == EngineClockStatus.Stopped)
+                {
+                    engineClock.Start ( out isRunning );
+
+                    Console.WriteLine ( "[{0}][{1}] Engine running",
+                        engineClock.ToString ( ),
+                        System.Threading.Thread.CurrentThread.ManagedThreadId );
+                }
+
+                if (token.IsCancellationRequested)
+                {
+                    token.ThrowIfCancellationRequested ( );
+                }
+
+                Thread.Sleep ( 1 );
+            }
+        }
+
+        private static void stopEngine ( )
+        {
+            //  clean up resources
+            if (cancelSource != null)
+            {
+                cancelSource.Cancel ( );
+                engineStartProcess.Wait ( );
+
+                if (engineStartProcess.Status == TaskStatus.RanToCompletion)
+                {
+                    engineClock.Stop ( out isRunning );
+
+                    cancelSource = null;
+                }
+            }
+        }
+
+        static void engineClock_ClockStarted ( object sender, ClockStartedEventArgs e )
+        {
+            startTimeStamp = e.StartTimeStamp;
+
+            Console.WriteLine ( "[{0}][{1}] Engine Clock {2}",
+                   engineClock.ToString ( ),
+                   System.Threading.Thread.CurrentThread.ManagedThreadId,
+                   e.ClockStatus );
+        }
+
+        static void engineClock_ClockStopped ( object sender, ClockStoppedEventArgs e )
+        {
+            elapsedRuntime = e.ElapsedRunTime;
+
+            Console.WriteLine ( "[{0}][{1}] Engine Clock {2}",
+                   engineClock.ToString ( ),
+                   System.Threading.Thread.CurrentThread.ManagedThreadId,
+                   e.ClockStatus );
+        }
+        #endregion
+
+        #region Properties
+        public static EngineClock Clock
+        {
+            get
+            {
+                return engineClock;
+            }
+        }
+
+        public static Boolean IsRunning
+        {
+            get
+            {
+                return isRunning;
+            }
+        }
+        #endregion
+    }
+}
