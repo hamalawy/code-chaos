@@ -37,13 +37,6 @@
     <StartupObject>Strategem.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Engine_01, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Engine_01\bin\Debug\Engine_01.dll</HintPath>
-    </Reference>
-    <Reference Include="GameLib_01">
-      <HintPath>..\GameLib_01\bin\x86\Debug\GameLib_01.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="System" />
@@ -62,9 +55,7 @@
     <Compile Include="Runtime\Grid.cs" />
     <Compile Include="Runtime\Board.cs" />
     <Compile Include="Runtime\RandomGenerator.cs" />
-    <Compile Include="Form\Canvas.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Form\Canvas.cs" />
     <Compile Include="Form\frmGameWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +86,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Engine_01\Engine_01.csproj">
+      <Project>{DF5113DF-84FB-41DC-B105-0B6B8017569C}</Project>
+      <Name>Engine_01</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameLib_01\GameLib_01.csproj">
+      <Project>{9223A9CF-51FF-4E90-B271-9A4463B38F2D}</Project>
+      <Name>GameLib_01</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
