@@ -25,6 +25,7 @@ namespace Engine_01
         #endregion
 
         #region Init
+        //  Static constructor to instance single objects.
         static Engine ( )
         {
             activeTasks = new List<ITimeSyncedObject> ( );
@@ -33,6 +34,10 @@ namespace Engine_01
         #endregion
 
         #region Functions
+        /// <summary>
+        /// Starts the Engine and other components.
+        /// </summary>
+        /// <returns>Returns true if engine started.</returns>
         public static Boolean Start ( )
         {
             //  start engine on worker thread
@@ -63,7 +68,9 @@ namespace Engine_01
 
             return isRunning;
         }
-
+        /// <summary>
+        /// Stops the Engine and all components.
+        /// </summary>
         public static void Stop ( )
         {
             Console.WriteLine ( "[{0}] Engine stopping",
@@ -75,13 +82,17 @@ namespace Engine_01
                 engineClock.ToString(),
                 engineClock.Elapsed );
         }
-
+        /// <summary>
+        /// Resets the Engine and all components.
+        /// </summary>
         public static void ResetEngine ( )
         {
             Stop ( );
             Start ( );
         }
 
+        //  =======================================================
+        //  Usage undetermined.
         public static Action StartTimerTask ( Action action )
         {
             //if (activeTasks.ContainsKey ( action ))
@@ -94,7 +105,7 @@ namespace Engine_01
 
             return action;
         }
-
+        //  Usage undetermined.
         public static void StopTimerTask ( Action action )
         {
             //if (activeTasks.ContainsKey ( action ))
@@ -103,9 +114,16 @@ namespace Engine_01
             //    activeTasks.Remove ( action );
             //}
         }
+        //  =======================================================
 
         //  =======================================================
         //  private functions
+
+        /// <summary>
+        /// Contains the main loop.
+        /// </summary>
+        /// <param name="token">The cancellation token used to monitor for
+        /// cancellation request.</param>
         private static void startEngine ( CancellationToken token )
         {
             token.ThrowIfCancellationRequested ( );
@@ -131,6 +149,10 @@ namespace Engine_01
             }
         }
 
+        /// <summary>
+        /// Stops the engine by acting on a cancellation request. Also 
+        /// cleans up any resources used by the engine.
+        /// </summary>
         private static void stopEngine ( )
         {
             //  clean up resources
@@ -170,6 +192,9 @@ namespace Engine_01
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Returns a reference to the EngineClock.
+        /// </summary>
         public static EngineClock Clock
         {
             get
@@ -177,7 +202,9 @@ namespace Engine_01
                 return engineClock;
             }
         }
-
+        /// <summary>
+        /// Returns true is the engine is running.
+        /// </summary>
         public static Boolean IsRunning
         {
             get

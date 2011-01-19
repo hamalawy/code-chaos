@@ -32,9 +32,14 @@ using System.Diagnostics;
 namespace Engine_01.Runtime
 {
     /// <summary>
-    /// EngineClock is a customized timing service and clock with start and stop
-    /// events. As a service, accessible via ServiceContainer, EngineClock accepts 
-    /// a collection of CallBacks for Timer operations.
+    /// EngineClock
+    ///     EngineClock is a customized timing service and clock with start and 
+    ///     stop events. As a service, accessible via ServiceContainer, EngineClock 
+    ///     accepts a collection of CallBacks for Timer operations (using 
+    ///     ITimeSyncedObject).
+    ///     
+    ///     ITimeSyncedObject may be used to build a class that keeps timed objects
+    ///     synchronized with other objects. This is yet to be determined.
     /// </summary>
     public class EngineClock : IServiceObject
     {
@@ -47,6 +52,8 @@ namespace Engine_01.Runtime
         public static readonly EngineClock Clock;
 
         private readonly ServiceContainer services;
+
+        //  not currently used
         private readonly List<ITimeSyncedObject> syncedObjects;
 
         private long elapsed;
@@ -56,10 +63,12 @@ namespace Engine_01.Runtime
         #endregion
 
         #region Init
+        //  Static constructor to instance single objects.
         static EngineClock ( )
         {
             Clock = new EngineClock ( );
         }
+        //  Private constructor for singleton object.
         private EngineClock ( )
         {
             services = ServiceContainer.Container;
@@ -72,6 +81,10 @@ namespace Engine_01.Runtime
         #endregion
 
         #region Functions
+        /// <summary>
+        /// Resets the EngineClock.
+        /// </summary>
+        /// <returns>Returns elapsed ticks prior to engine clock reset.</returns>
         public long Reset ( )
         {
             long elapsed = this.elapsed;
@@ -84,13 +97,18 @@ namespace Engine_01.Runtime
 
             return elapsed;
         }
-
+        /// <summary>
+        /// Restarts the EngineClock.
+        /// </summary>
         public void Restart ( )
         {
             elapsed = 0L;
             startTimeStamp = TimeStamp;
         }
-
+        /// <summary>
+        /// Starts the EngineClock.
+        /// </summary>
+        /// <param name="IsRunning">Out is true if running.</param>
         public void Start ( out bool IsRunning )
         {
             if (clockStatus == EngineClockStatus.Running)
@@ -106,7 +124,10 @@ namespace Engine_01.Runtime
 
             IsRunning = true;
         }
-
+        /// <summary>
+        /// Stops the EngineClock.
+        /// </summary>
+        /// <param name="IsRunning">Out is false if stopped.</param>
         public void Stop ( out bool IsRunning )
         {
             if (clockStatus == EngineClockStatus.Stopped)
@@ -128,7 +149,10 @@ namespace Engine_01.Runtime
 
             IsRunning = false;
         }
-
+        /// <summary>
+        /// Add an ITimeSyncedObject to the event tree.
+        /// </summary>
+        /// <param name="SyncedObject"></param>
         public void AddTimeSyncObject ( ITimeSyncedObject SyncedObject )
         {
             //  add synced object to collection
@@ -158,7 +182,11 @@ namespace Engine_01.Runtime
                 }
             }
         }
-
+        /// <summary>
+        /// Starts an ITimeSyncedObject.
+        /// </summary>
+        /// <typeparam name="TSyncedObject">An ITimeSyncedObject type.</typeparam>
+        /// <param name="SyncedObject">The object implementing ITimeSynced.</param>
         public void StartTask<TSyncedObject> ( TSyncedObject SyncedObject )
             where TSyncedObject : ITimeSyncedObject
         {
@@ -166,7 +194,11 @@ namespace Engine_01.Runtime
 
             SyncedObject.SyncTimer.Start ( );
         }
-
+        /// <summary>
+        /// Stops an ITimeSyncedObject.
+        /// </summary>
+        /// <typeparam name="TSyncedObject">An ITimeSyncedObject type.</typeparam>
+        /// <param name="SyncedObject">The object implementing ITimeSynced.</param>
         public void StopTask<TSyncedObject> ( TSyncedObject SyncedObject )
             where TSyncedObject : ITimeSyncedObject
         {
@@ -174,7 +206,10 @@ namespace Engine_01.Runtime
 
             syncObject.SyncTimer.Stop ( );
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>The EngineClock time stamp in the form hh:mm:ss.fffffff</returns>
         public override string ToString ( )
         {
             if (String.IsNullOrEmpty ( StartTimeStamp ))
@@ -185,14 +220,19 @@ namespace Engine_01.Runtime
 
             return new DateTime ( TimeStamp ).ToString ( "hh:mm:ss.fffffff" );
         }
-
+        /// <summary>
+        /// OnClockStarted event method.
+        /// </summary>
+        /// <param name="TimeStamp">EngineClock time stamp at startup.</param>
         public void OnClockStarted ( long TimeStamp )
         {
             EventHandler<ClockStartedEventArgs> _clockStarted = ClockStarted;
             if (_clockStarted != null)
                 _clockStarted ( this, new ClockStartedEventArgs ( TimeStamp, clockStatus ) );
         }
-
+        /// <summary>
+        /// OnClockedStopped event method.
+        /// </summary>
         public void OnClockStopped ( )
         {
             EventHandler<ClockStoppedEventArgs> _clockStopped = ClockStopped;
@@ -246,6 +286,9 @@ namespace Engine_01.Runtime
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Elapsed engine run-time as TimeSpan.
+        /// </summary>
         public TimeSpan Elapsed
         {
             get
@@ -253,7 +296,9 @@ namespace Engine_01.Runtime
                 return new TimeSpan ( getRawElaspedTicks ( ) );
             }
         }
-
+        /// <summary>
+        /// Elapsed engine run-time in milliseconds.
+        /// </summary>
         public long ElapsedMilliseconds
         {
             get
@@ -261,7 +306,9 @@ namespace Engine_01.Runtime
                 return ( getRawElaspedTicks ( ) / 0x2710L );
             }
         }
-
+        /// <summary>
+        /// Elapsed engine run-time in ticks.
+        /// </summary>
         public long ElapsedTicks
         {
             get
@@ -269,7 +316,9 @@ namespace Engine_01.Runtime
                 return getRawElaspedTicks ( );
             }
         }
-
+        /// <summary>
+        /// Current EngineClock status.
+        /// </summary>
         public EngineClockStatus Status
         {
             get
@@ -277,7 +326,10 @@ namespace Engine_01.Runtime
                 return clockStatus;
             }
         }
-
+        /// <summary>
+        /// Current EngineClock time stamp. Note that the engine
+        /// clock need not be running to retrieve a time stamp.
+        /// </summary>
         public long TimeStamp
         {
             get
@@ -285,7 +337,10 @@ namespace Engine_01.Runtime
                 return DateTime.UtcNow.Ticks;
             }
         }
-
+        /// <summary>
+        /// Gets the EngineClock startup time stamp as a
+        /// string value.
+        /// </summary>
         public string StartTimeStamp
         {
             get;
@@ -293,7 +348,11 @@ namespace Engine_01.Runtime
         }
         #endregion
     }
-
+    /// <summary>
+    /// EngineClockStatus
+    ///     
+    ///     Enumerator for EngineClock status.
+    /// </summary>
     public enum EngineClockStatus
     {
         Stopped = 0,
