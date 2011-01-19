@@ -139,7 +139,9 @@ namespace Engine_01
                         engineClock.ToString ( ),
                         System.Threading.Thread.CurrentThread.ManagedThreadId );
                 }
-
+                // TODO: This line throws an exception that is unhandled when 
+                // a new game is started too quickly after another
+                // "Operation Canceled Exception"
                 if (token.IsCancellationRequested)
                 {
                     token.ThrowIfCancellationRequested ( );
