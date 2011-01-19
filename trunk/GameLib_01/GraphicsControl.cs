@@ -15,6 +15,7 @@ using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+//using Microsoft.Xna.Framework.
 //
 using Engine_01.Runtime;
 //
@@ -57,10 +58,11 @@ namespace GameLib_01
                 graphicsDeviceService =
                     GraphicsDeviceService.AddReference
                     (
-                        Handle,
+                        Mouse.WindowHandle,//Changed to be the form handle and it moves the xna game window to the right spot
+                        // it can also be changed to Form.ActiveForm.Handle
                         vpRectangle
                     );
-
+                
                 // Register the service, so components like ContentManager can find it.
                 services.AddService ( graphicsDeviceService );
 
@@ -114,24 +116,31 @@ namespace GameLib_01
             {
                 return deviceResetError;
             }
-
+            #region Comments
+            //commented out the Viewport in order to determine if this was causing the problem
+            //my un ins with Microsoft code told me this was something extra they put in 
+            //because we arent using multiple controls
+            
             // Many GraphicsDeviceControl instances can be sharing the same
             // GraphicsDevice. The device backbuffer will be resized to fit the
             // largest of these controls. But what if we are currently drawing
             // a smaller control? To avoid unwanted stretching, we set the
             // viewport to only use the top left portion of the full backbuffer.
-            Viewport viewport = new Viewport ( );
-
+            /*Viewport viewport = new Viewport();
+            
             viewport.X = 0;
             viewport.Y = 0;
+            
 
             viewport.Width = ClientSize.Width;
             viewport.Height = ClientSize.Height;
 
             viewport.MinDepth = 0;
             viewport.MaxDepth = 1;
-
-            GraphicsDevice.Viewport = viewport;
+            
+            GraphicsDevice.Viewport = viewport;*/
+            # endregion
+            Mouse.WindowHandle = Handle;// moved the mouse coords to be relative to the WPF
 
             MouseState mouse = Mouse.GetState ( );
 
@@ -154,7 +163,7 @@ namespace GameLib_01
                 //Rectangle sourceRectangle = new Rectangle ( 0, 0, ClientSize.Width,
                 //                                                ClientSize.Height );
 
-                GraphicsDevice.Present ( vpRectangle, null, this.Handle );
+                GraphicsDevice.Present ( vpRectangle, null, Mouse.WindowHandle );
             }
             catch
             {

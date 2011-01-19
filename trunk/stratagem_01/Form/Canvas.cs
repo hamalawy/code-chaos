@@ -65,7 +65,7 @@ namespace Strategem
         protected override void Initialize ( )
         {
             // Hook the idle event to constantly redraw our animation.
-            System.Windows.Forms.Application.Idle += delegate
+            Application.Idle += delegate
             {
                 Invalidate ( );
             };
@@ -73,7 +73,7 @@ namespace Strategem
 
         protected override void BeginDraw ( )
         {
-            GraphicsDevice.Clear ( XColor.CornflowerBlue );
+            GraphicsDevice.Clear ( Color.CornflowerBlue );
         }
 
         protected override void OnCreateControl ( )
