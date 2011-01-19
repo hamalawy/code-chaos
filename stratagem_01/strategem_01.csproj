@@ -42,7 +42,7 @@
       <HintPath>..\Engine_01\bin\Debug\Engine_01.dll</HintPath>
     </Reference>
     <Reference Include="GameLib_01">
-      <HintPath>..\..\GameWorks\GameLib_01\bin\x86\Debug\GameLib_01.dll</HintPath>
+      <HintPath>..\GameLib_01\bin\x86\Debug\GameLib_01.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />

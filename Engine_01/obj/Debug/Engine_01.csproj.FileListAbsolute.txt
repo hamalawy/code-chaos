@@ -8,3 +8,13 @@ C:\GameWorks\code-chaos\Engine_01\bin\Debug\Engine_01.pdb
 C:\GameWorks\code-chaos\Engine_01\obj\Debug\ResolveAssemblyReference.cache
 C:\GameWorks\code-chaos\Engine_01\obj\Debug\Engine_01.dll
 C:\GameWorks\code-chaos\Engine_01\obj\Debug\Engine_01.pdb
+D:\OpenSource\Engine_01\bin\Debug\Engine_01.dll
+D:\OpenSource\Engine_01\bin\Debug\Engine_01.pdb
+D:\OpenSource\Engine_01\obj\Debug\ResolveAssemblyReference.cache
+D:\OpenSource\Engine_01\obj\Debug\Engine_01.dll
+D:\OpenSource\Engine_01\obj\Debug\Engine_01.pdb
+C:\OpenSource\Engine_01\bin\Debug\Engine_01.dll
+C:\OpenSource\Engine_01\bin\Debug\Engine_01.pdb
+C:\OpenSource\Engine_01\obj\Debug\ResolveAssemblyReference.cache
+C:\OpenSource\Engine_01\obj\Debug\Engine_01.dll
+C:\OpenSource\Engine_01\obj\Debug\Engine_01.pdb
