@@ -6,9 +6,9 @@ using System.Text;
 using System.Windows.Forms;
 using SysTimer = System.Timers.Timer;
 //
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using XColor = Microsoft.Xna.Framework.Color;
 //
 using GameLib_01;
 using Strategem.Runtime;
@@ -72,7 +72,10 @@ namespace Strategem
 
         protected override void BeginDraw ( )
         {
-            GraphicsDevice.Clear ( Color.CornflowerBlue );
+            Microsoft.Xna.Framework.Color color = 
+                new Microsoft.Xna.Framework.Color ( 180, 125, 70 );
+
+            GraphicsDevice.Clear ( color );
         }
 
         protected override void OnCreateControl ( )
