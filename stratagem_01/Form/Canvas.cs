@@ -25,7 +25,6 @@ namespace Strategem
         private Rectangle clientArea;
         private Grid grid;
         private Cell currentTile;
-        //private frmGameWindow owner;
         #endregion
 
         #region Init
@@ -133,6 +132,8 @@ namespace Strategem
 
                     Cells.Add ( cell.Bounds, cell );
                 }
+
+                Console.WriteLine ( "Create cell row #{0}", iRow );
             }
         }
         #endregion
