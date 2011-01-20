@@ -9,13 +9,11 @@
 */
 
 using System;
-//using System.Drawing;
 using System.Windows.Forms;
 //
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-//using Microsoft.Xna.Framework.
 //
 using Engine_01.Runtime;
 //
@@ -26,7 +24,7 @@ namespace GameLib_01
 {
     // System.Drawing and the XNA Framework both define Color and Rectangle
     // types. To avoid conflicts, we specify exactly which ones to use.
-    using Color = System.Drawing.Color;
+    //using Color = System.Drawing.Color;
 
     public abstract class GraphicsControl : Control
     {
@@ -165,7 +163,7 @@ namespace GameLib_01
         {
             try
             {
-                Rectangle vpRectangle = base.RectangleToScreen(ClientRectangle).ToXNARectangle ( );
+                Rectangle vpRectangle = ClientRectangle.ToXNARectangle ( );
 
                 //Rectangle sourceRectangle = new Rectangle ( 0, 0, ClientSize.Width,
                 //                                                ClientSize.Height );
@@ -223,9 +221,9 @@ namespace GameLib_01
 
         protected virtual void PaintUsingSystemDrawing ( System.Drawing.Graphics graphics, string text )
         {
-            graphics.Clear ( Color.CornflowerBlue );
+            graphics.Clear ( System.Drawing.Color.LightSlateGray );
 
-            using (System.Drawing.Brush brush = new System.Drawing.SolidBrush ( Color.Black ))
+            using (System.Drawing.Brush brush = new System.Drawing.SolidBrush ( System.Drawing.Color.Black ))
             {
                 using (System.Drawing.StringFormat format = new System.Drawing.StringFormat ( ))
                 {
