@@ -6,3 +6,11 @@ C:\OpenSource\GameLib_01\bin\x86\Debug\Engine_01.dll
 C:\OpenSource\GameLib_01\bin\x86\Debug\Engine_01.pdb
 C:\OpenSource\GameLib_01\obj\x86\Debug\GameLib_01.dll
 C:\OpenSource\GameLib_01\obj\x86\Debug\GameLib_01.pdb
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\GameLib_01.dll
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\GameLib_01.pdb
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Engine_01.dll
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Engine_01.pdb
+C:\GameWorks\code-chaos\GameLib_01\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GameWorks\code-chaos\GameLib_01\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\GameWorks\code-chaos\GameLib_01\obj\x86\Debug\GameLib_01.dll
+C:\GameWorks\code-chaos\GameLib_01\obj\x86\Debug\GameLib_01.pdb

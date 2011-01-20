@@ -37,10 +37,16 @@ namespace GameLib_01
         #region Fields
         GraphicsDeviceService graphicsDeviceService;
         ServiceContainer services = ServiceContainer.Container;
+
+        protected System.Windows.Forms.Form owner;
+
         #endregion
 
         #region Init
-
+        protected GraphicsControl ( System.Windows.Forms.Form Owner )
+        {
+            owner = Owner;
+        }
         #endregion
 
         #region Functions
@@ -53,12 +59,13 @@ namespace GameLib_01
             // Don't initialize the graphics device if we are running in the designer.
             if (!DesignMode)
             {
-                Rectangle vpRectangle = base.RectangleToScreen ( ClientRectangle ).ToXNARectangle();
+                Rectangle vpRectangle = ClientRectangle.ToXNARectangle ( );
 
                 graphicsDeviceService =
                     GraphicsDeviceService.AddReference
                     (
-                        Mouse.WindowHandle,//Changed to be the form handle and it moves the xna game window to the right spot
+                       // Mouse.WindowHandle,//Changed to be the form handle and it moves the xna game window to the right spot
+                        owner.Handle,
                         // it can also be changed to Form.ActiveForm.Handle
                         vpRectangle
                     );

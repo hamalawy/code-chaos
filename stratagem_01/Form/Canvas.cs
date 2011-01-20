@@ -24,23 +24,23 @@ namespace Strategem
 
         private Rectangle clientArea;
         private Grid grid;
-        private Board board;
         private Cell currentTile;
-        private frmGameWindow owner;
+        //private frmGameWindow owner;
         #endregion
 
         #region Init
         public Canvas ( frmGameWindow Owner, System.Drawing.Size Area )
+            : base (Owner)
         {
             base.Size = Area;
             owner = Owner;
 
-            clientArea = new Rectangle ( owner.ClientRectangle.X, 
-                owner.ClientRectangle.Y,
-                owner.ClientRectangle.Width, 
-                owner.ClientRectangle.Height );
+            clientArea = new Rectangle ( ClientRectangle.X, 
+                ClientRectangle.Y,
+                ClientRectangle.Width, 
+                ClientRectangle.Height );
 
-            grid = new Grid ( 9, 5, new System.Drawing.Size(clientArea.Width, clientArea.Height ));
+            grid = new Grid ( 9, 5, Area);
             matrix = new List<Cell[]> ( grid.Rows );
             Cells = new Dictionary<Rectangle, Cell> ( );
 
@@ -99,7 +99,7 @@ namespace Strategem
 
             if (( currentTile == null ) || ( !currentTile.Equals ( Cells[ cell ] ) ))
             {
-                owner.lblCell.Text = String.Format("[{0}][{1}] Cell {2}",
+                ((frmGameWindow)owner).lblCell.Text = String.Format("[{0}][{1}] Cell {2}",
                     EngineClock.Clock.ToString ( ),
                     System.Threading.Thread.CurrentThread.ManagedThreadId,
                     Cells[ cell ].Name );
@@ -164,7 +164,7 @@ namespace Strategem
         {
             get
             {
-                return board.Matrix;
+                return matrix;
             }
         }
 
