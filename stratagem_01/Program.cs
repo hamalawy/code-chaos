@@ -9,6 +9,7 @@ using GameLib_01.Data;
 //
 using Strategem.Runtime;
 using System.Configuration;
+//
 
 namespace Strategem
 {
@@ -39,6 +40,7 @@ namespace Strategem
             gameBoard.Shown += new EventHandler ( gameBoard_Load );
 
             canvases = gameBoard.canvases;
+
 
             Application.Run(gameBoard);
         }
