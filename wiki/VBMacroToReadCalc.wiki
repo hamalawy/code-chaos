@@ -1,0 +1,25 @@
+#labels Featured,Phase-QA,Phase-Requirements
+This is a VB Macro sample from: http://www.linux.com/archive/feature/132566  
+
+This macro read a Calc spreadsheet and copies the data into an OpenOffice Base table:  
+
+{{{
+Dim RowSetObj As Object, ConnectToDatabase As Object
+
+DBContext=createUnoService("com.sun.star.sdb.DatabaseContext")
+DataSource=DBContext.getByName("TasksDB")
+ConnectToDatabase=DataSource.GetConnection ("","")
+
+oURL="private:factory/scalc"
+oDoc=StarDesktop.loadComponentFromURL(oURL, "_blank", 0, Array())
+oSheet=oDoc.Sheets(0)
+oSheet.Name="Tasks"
+
+SQLQuery= "SELECT ""Task"", ""Date"", ""Done"" FROM ""tasks"" ORDER BY ""Date"" ASC"
+SQLStatement=ConnectToDatabase.createStatement
+RowSetObj=SQLStatement.executeQuery (SQLQuery)
+}}}
+
+The project will be to make a conversion of this in C# so we can read OpenOffice Calc spreadsheets for our data as we begin testing data algorithms.  
+
+If someone actually finds a sample of C# that does what I'm trying to do, leave a comment or leave a message for us in our IRC web chat.
