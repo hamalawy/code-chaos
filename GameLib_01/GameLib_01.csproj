@@ -76,6 +76,7 @@
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml">
@@ -95,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ContentLib.cs" />
+    <Compile Include="Data\DataManager.cs" />
     <Compile Include="EventArgs\MouseMovedEventArgs.cs" />
     <Compile Include="Extensions\DrawingExtensions.cs" />
     <Compile Include="GraphicsControl.cs">

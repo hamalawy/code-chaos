@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 //
 using Engine_01;
+using GameLib_01.Data;
+//
 using Strategem.Runtime;
+using System.Configuration;
 
 namespace Strategem
 {
@@ -44,6 +48,18 @@ namespace Strategem
             if (!Engine.Start ( ))
             {
                 gameBoard.closeToolStripMenuItem.PerformClick ( );
+            }
+
+            if (!gameBoard.IsDisposed)
+            {
+                //  check for directory structure
+                DirectoryInfo dir = new DirectoryInfo ( Application.ExecutablePath );
+                dir = dir.Parent;
+
+                //  get fileinfo object for calc spreadsheet
+                FileInfo file = new FileInfo ( dir.FullName + ConfigurationManager.AppSettings[ "_boardStats" ] );
+                // get data connector
+                DataManager.LoadDBContent ( file );
             }
         }
         #endregion
