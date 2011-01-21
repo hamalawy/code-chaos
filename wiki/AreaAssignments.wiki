@@ -18,7 +18,7 @@ Since there are 2 of us, we can pick and choose our individual areas to work on.
 
 *RandomGenerator* - taking my time with this because I want something that is pretty good. Right now it is designed to be a _use and replace_ mechanism. This is still in early stages.
 
-*Database* - this is going to start off fairly simple. I plan on using OpenOffice Calc as the data store and MySql data connection to read data. This will allow us to quickly change values and read data quickly and without the overhead of a big database engine.
+*Database* - <strike>this is going to start off fairly simple. I plan on using OpenOffice Calc as the data store and MySql data connection to read data.</strike> Data will be conveniently stored in .CSV format during early stages of development. We need to be able to tweak values, test numerical algorithms and value ranges. Once we have algorithms working correctly and not variable values set, we can serialize into XML during later stages.
 
 *Player objects & classes* - Designing the player areas on the game board and the player classes.
 
