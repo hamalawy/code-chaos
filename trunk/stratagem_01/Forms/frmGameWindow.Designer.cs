@@ -1,4 +1,4 @@
-﻿namespace Strategem
+﻿namespace Stratagem
 {
     partial class frmGameWindow
     {

@@ -11,11 +11,12 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 //
 using GameLib_01;
-using Strategem.Runtime;
+//
 using Engine_01.Runtime;
-using Microsoft.Xna.Framework;
+//
+using Stratagem.Runtime;
 
-namespace Strategem
+namespace Stratagem
 {
     public sealed class Canvas : GraphicsControl
     {

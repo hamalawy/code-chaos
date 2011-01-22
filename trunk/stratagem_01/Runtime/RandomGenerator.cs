@@ -9,7 +9,7 @@ using Engine_01;
 using Engine_01.Interfaces;
 using Engine_01.Runtime;
 
-namespace Strategem.Runtime
+namespace Stratagem.Runtime
 {
     /// <summary>
     /// RandomGenerator is a singleton class.
