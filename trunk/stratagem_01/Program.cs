@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -21,6 +22,7 @@ namespace Stratagem
         static Dictionary<string, Canvas> canvases;
         static frmGameWindow gameBoard;
         static RandomGenerator randGenerator;
+        static DataTable boardStats;
         #endregion
 
         #region Entry
@@ -43,7 +45,11 @@ namespace Stratagem
 
             Application.Run(gameBoard);
         }
+        #endregion
 
+        #region Functions
+
+        // - private -
         static void gameBoard_Load ( object sender, EventArgs e )
         {
             if (!Engine.Start ( ))
@@ -59,10 +65,22 @@ namespace Stratagem
 
                 //  get fileinfo object for calc spreadsheet
                 FileInfo file = new FileInfo ( dir.FullName + ConfigurationManager.AppSettings[ "_boardStats" ] );
-                // get data connector
-                DataManager.LoadDBContent ( file );
+
+                // get data
+                string table = DataManager.LoadDBContent ( DataFileType.CSV, file );
+
+                boardStats = DataManager.GetTable(table);
+            }
+
+            if (boardStats != null)
+            {
+                Console.WriteLine ( "[{0}][{1}] Table loaded: {2}",
+                   Engine.Clock.Elapsed,
+                   System.Threading.Thread.CurrentThread.ManagedThreadId,
+                   boardStats.TableName );
             }
         }
+        
         #endregion
     }
 }
