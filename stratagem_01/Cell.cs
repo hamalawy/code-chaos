@@ -5,7 +5,7 @@ using System.Text;
 //
 using Microsoft.Xna.Framework;
 
-namespace Strategem
+namespace Stratagem
 {
     public class Cell
     {

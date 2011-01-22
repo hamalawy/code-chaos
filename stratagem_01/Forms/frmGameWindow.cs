@@ -12,7 +12,7 @@ using System.Windows.Forms;
 //
 using Engine_01;
 
-namespace Strategem
+namespace Stratagem
 {
     public partial class frmGameWindow : Form
     {

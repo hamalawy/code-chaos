@@ -8,7 +8,7 @@
     <ProjectGuid>{2DDB9478-7782-4C3A-AF6B-C213B37FEF4D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Strategem</RootNamespace>
+    <RootNamespace>Stratagem</RootNamespace>
     <AssemblyName>strategem_01</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Strategem.Program</StartupObject>
+    <StartupObject>Stratagem.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cell.cs" />
-    <Compile Include="Forms\Canvas.cs">
+    <Compile Include="Controls\Canvas.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Forms\frmGameWindow.cs">
@@ -102,6 +102,7 @@
       <Name>GameLib_01</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

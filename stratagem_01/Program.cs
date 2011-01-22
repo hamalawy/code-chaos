@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -7,11 +8,9 @@ using System.Windows.Forms;
 using Engine_01;
 using GameLib_01.Data;
 //
-using Strategem.Runtime;
-using System.Configuration;
-//
+using Stratagem.Runtime;
 
-namespace Strategem
+namespace Stratagem
 {
     /// <summary>
     /// Entry to WinForm game

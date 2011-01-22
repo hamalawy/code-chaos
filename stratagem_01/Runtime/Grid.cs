@@ -5,7 +5,7 @@ using System.Text;
 //
 using Microsoft.Xna.Framework;
 
-namespace Strategem.Runtime
+namespace Stratagem.Runtime
 {
     //  this needs to be converted to a GraphicsDeviceControl
     //  but works sufficiently to provide a grid/coordinate 

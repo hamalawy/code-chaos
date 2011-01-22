@@ -13,7 +13,7 @@ using Microsoft.Xna.Framework.Input;
 //
 using Engine_01.Runtime;
 
-namespace Strategem.Runtime
+namespace Stratagem.Runtime
 {
     public class Board
     {
