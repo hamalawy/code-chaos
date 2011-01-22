@@ -107,6 +107,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ContentPipeline\ContentPipeline.csproj">
+      <Project>{88F33B34-6B78-40E7-B899-9B6C34B7782A}</Project>
+      <Name>ContentPipeline</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Engine_01\Engine_01.csproj">
       <Project>{DF5113DF-84FB-41DC-B105-0B6B8017569C}</Project>
       <Name>Engine_01</Name>
