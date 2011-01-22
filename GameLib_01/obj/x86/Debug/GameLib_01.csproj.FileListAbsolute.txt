@@ -15,3 +15,5 @@ C:\GameWorks\code-chaos\GameLib_01\obj\x86\Debug\Microsoft.Xna.Framework.Runtime
 C:\GameWorks\code-chaos\GameLib_01\obj\x86\Debug\GameLib_01.dll
 C:\GameWorks\code-chaos\GameLib_01\obj\x86\Debug\GameLib_01.pdb
 C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\stars.xnb
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\LumenWorks.Framework.IO.dll
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\LumenWorks.Framework.IO.xml

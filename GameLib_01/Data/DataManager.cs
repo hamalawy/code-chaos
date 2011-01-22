@@ -6,9 +6,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 // 
-
+//using LumenWorks.Framework.IO;
+using LumenWorks.Framework.IO.Csv;   //CSV reader
 //
-using Engine_01.Runtime; 
+using Engine_01.Runtime;
 #endregion
 
 namespace GameLib_01.Data
@@ -16,56 +17,88 @@ namespace GameLib_01.Data
     /// <summary>
     /// DataManager
     /// 
-    ///     TODO: Add class comments
-    ///     
+    ///     TODO:   Add class comments
+    ///             Add ability to handle multiple data files
+    ///             
     /// currently working as an instance class although may not be instanced
     /// at all since I am going to provide public static methods for now - may
     /// be internally instanced - not sure at this point
     /// </summary>
-    public class DataManager
+    public static class DataManager
     {
         #region Fields
         private static EngineClock _clock = EngineClock.Clock;
+        private static Dictionary<string, DataTable> dataTables;
         #endregion
 
         #region Init
-        //  Include an init section only in objects where a constructor
-        //  is defined.
-        #endregion
- 
-        #region Functions
-        public static bool LoadDBContent ( FileInfo DataFile )
+        static DataManager ( )
         {
+            dataTables = new Dictionary<string, DataTable> ( );
+        }
+        #endregion
+
+        #region Functions
+        public static string LoadDBContent ( DataFileType FileType, FileInfo DataFile )
+        {
+            //  TODO: implement DataFileType to handle csv, xml, and bin(ary) files
+
+            //  load data and return string[] array
             if (File.Exists ( DataFile.FullName ))
             {
-                if (readFile ( DataFile ))
-                {
-                    return true;
-                }
+                return readFile ( DataFile );
             }
 
-            return false;
+            return string.Empty;
+        }
+
+        public static DataTable GetTable ( string TableName )
+        {
+            return dataTables[ TableName ];
         }
 
         //  =======================================================
         //  private functions
-        private static bool readFile ( FileInfo dataFile )
+        private static string readFile ( FileInfo dataFile )
         {
-            bool _readSuccess = false;
+            //  TODO: should be able to handle multiple data files
+            bool _hasTable = false;
 
-            using (Stream stream = new FileStream ( dataFile.OpenRead ( ).SafeFileHandle, FileAccess.Read ))
+            string[] members = dataFile.Name.Split('.');
+            string tblName = members[ 0 ];
+
+            DataTable table = new DataTable ( tblName );
+
+            using (StreamReader stream = new StreamReader ( dataFile.FullName, Encoding.UTF8 ))
+            using (CsvReader csv = new CsvReader ( stream, true ))
             {
-                _readSuccess = true;
+                table.Load ( csv );
+
+                if (table.Rows.Count > 0)
+                {
+                    _hasTable = true;
+                    dataTables.Add ( tblName, table );
+                }
             }
 
-            return _readSuccess;
+            return tblName;
         }
         #endregion
 
         #region Properties
-        //  Include a properies section only in objects where properties
-        //  are defined.
         #endregion
-   }
+    }
 
+    /// <summary>
+    /// This enum will tell DataManager what type of data file is being loaded. Current
+    /// supported file types: .csv, .xml, .bin (binary serialized).
+    /// 
+    /// Note that this is in a temporary location. 
+    /// </summary>
+    public enum DataFileType
+    {
+        CSV     = 0,
+        XML,
+        BIN,
+    }
 }
