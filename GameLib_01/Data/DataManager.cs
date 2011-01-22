@@ -36,12 +36,12 @@ namespace GameLib_01.Data
         #region Functions
         public static bool LoadDBContent ( FileInfo DataFile )
         {
-            object RowSetObj;
-            object ConnectToDatabase;
-
             if (File.Exists ( DataFile.FullName ))
             {
-                readFile ( DataFile );
+                if (readFile ( DataFile ))
+                {
+                    return true;
+                }
             }
 
             return false;
