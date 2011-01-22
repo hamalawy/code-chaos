@@ -1,0 +1,10 @@
+C:\GameWorks\code-chaos\ContentManager\bin\x86\Debug\ContentPipeline.dll
+C:\GameWorks\code-chaos\ContentManager\bin\x86\Debug\ContentPipeline.pdb
+C:\GameWorks\code-chaos\ContentManager\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GameWorks\code-chaos\ContentManager\obj\x86\Debug\ContentPipeline.dll
+C:\GameWorks\code-chaos\ContentManager\obj\x86\Debug\ContentPipeline.pdb
+C:\GameWorks\code-chaos\ContentPipeline\bin\x86\Debug\ContentPipeline.dll
+C:\GameWorks\code-chaos\ContentPipeline\bin\x86\Debug\ContentPipeline.pdb
+C:\GameWorks\code-chaos\ContentPipeline\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\GameWorks\code-chaos\ContentPipeline\obj\x86\Debug\ContentPipeline.dll
+C:\GameWorks\code-chaos\ContentPipeline\obj\x86\Debug\ContentPipeline.pdb
