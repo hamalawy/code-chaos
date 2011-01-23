@@ -23,3 +23,6 @@ C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\LumenWorks.Framework.IO.pdb
 C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\stars.xnb
 C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\stars.jpg
 >>>>>>> .r52
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\stars.xnb
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\ninja release.xnb
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\stars.jpg
