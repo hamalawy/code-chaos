@@ -14,6 +14,7 @@ using System.Windows.Forms;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
 //
 using Engine_01.Runtime;
 //
@@ -37,6 +38,7 @@ namespace GameLib_01
         ServiceContainer services = ServiceContainer.Container;
 
         protected System.Windows.Forms.Form owner;
+        ContentManager Content;
 
         #endregion
 
@@ -74,10 +76,14 @@ namespace GameLib_01
                 // Give derived classes a chance to initialize themselves.
                 Initialize ( );
             }
-
+            
             base.OnCreateControl ( );
         }
-
+        public void LoadAssets()
+        {
+            Content = new ContentManager(services, "Content");
+            Texture2D texture = Content.Load<Texture2D>("Images/stars");
+        }
         protected override void Dispose ( bool disposing )
         {
             if (graphicsDeviceService != null)
