@@ -69,6 +69,7 @@ namespace Stratagem
             {
                 Invalidate ( );
             };
+            base.LoadAssets();
         }
 
         protected override void BeginDraw ( )
@@ -88,7 +89,7 @@ namespace Stratagem
 
         protected override void OnMouseMoved ( object sender, MouseMovedEventArgs e )
         {
-            Console.WriteLine ( e.Location );
+            //Console.WriteLine ( e.Location );
 
             var cell = ( from tile in Cells.Keys
                          where tile.Contains(e.Location)
