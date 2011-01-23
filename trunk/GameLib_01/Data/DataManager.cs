@@ -1,4 +1,10 @@
-﻿#region Using definitions
+﻿#region Copyrights
+/*
+ * LumenWorks.Framework, Copyright (c) 2005 Sébastien Lorion
+ ****/
+#endregion
+
+#region Using definitions
 using System;
 using System.Collections.Generic;
 using System.Data;

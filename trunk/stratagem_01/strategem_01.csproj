@@ -64,6 +64,7 @@
     <Compile Include="Forms\frmGameWindow.Designer.cs">
       <DependentUpon>frmGameWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Runtime\Collections.cs" />
     <Compile Include="Runtime\Grid.cs" />
     <Compile Include="Runtime\Board.cs" />
     <Compile Include="Runtime\RandomGenerator.cs" />
