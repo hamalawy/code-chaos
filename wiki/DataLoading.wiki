@@ -1,5 +1,5 @@
 #labels Featured,Phase-Design
-DataLoading is performed through a library authored by Sebastien Lorien. The source, demo, and article can be found at http://www.codeproject.com/KB/database/CsvReader.aspx?msg=3744574#xx3744574xx .  
+DataLoading is performed through a library authored by Sebastien Lorion. The source, demo, and article can be found at http://www.codeproject.com/KB/database/CsvReader.aspx?msg=3744574#xx3744574xx .  
 
 This is going to be for early stage development of numerical algorithms and determining mechanical balance, numerical limits, and random range generation.  
 
