@@ -42,7 +42,6 @@ namespace Stratagem
 
             canvases = gameBoard.canvases;
 
-
             Application.Run(gameBoard);
         }
         #endregion
@@ -59,16 +58,11 @@ namespace Stratagem
 
             if (!gameBoard.IsDisposed)
             {
-                //  check for directory structure
-                DirectoryInfo dir = new DirectoryInfo ( Application.ExecutablePath );
-                dir = dir.Parent;
-
                 //  get fileinfo object for calc spreadsheet
-                FileInfo file = new FileInfo ( dir.FullName + ConfigurationManager.AppSettings[ "_boardStats" ] );
+                FileInfo file = getDataFile ( ConfigurationManager.AppSettings[ "_boardStats" ] );
 
                 // get data
                 string table = DataManager.LoadDBContent ( DataFileType.CSV, file );
-
                 boardStats = DataManager.GetTable(table);
             }
 
@@ -80,7 +74,15 @@ namespace Stratagem
                    boardStats.TableName );
             }
         }
-        
+
+        static FileInfo getDataFile ( string FileName )
+        {
+            DirectoryInfo dir = new DirectoryInfo ( Application.ExecutablePath );
+            dir = dir.Parent;
+
+            //  get fileinfo object for calc spreadsheet
+            return new FileInfo ( dir.FullName + FileName );
+        }
         #endregion
     }
 }
