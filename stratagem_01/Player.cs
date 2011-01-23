@@ -15,16 +15,20 @@ namespace Stratagem
     public class Player
     {
         #region Fields
-        private Cell[] cells;
+        private readonly string _internalName;
+
+        private int[] _cellIndexes;
         private string name;
         private float credits;
         private float worth;
         #endregion
 
         #region Init
-        public Player ( Cell[] Cells, String Name, float Credits, float Worth)
+        public Player ( string InternalName, int[] CellIndexes, String Name, float Credits, float Worth)
         {
-            cells = Cells;
+            _internalName = InternalName;
+
+            _cellIndexes = CellIndexes;
             name = Name;
             credits = Credits;
             worth = Worth;
@@ -34,7 +38,7 @@ namespace Stratagem
         #region Functions
         public Cell GetCell ( int CellNumber )
         {
-            return cells[ CellNumber ];
+            return _cellIndexes[ CellNumber ];
         }
         #endregion
 

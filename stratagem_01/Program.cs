@@ -22,7 +22,6 @@ namespace Stratagem
         static Dictionary<string, Canvas> canvases;
         static frmGameWindow gameBoard;
         static RandomGenerator randGenerator;
-        static DataTable boardStats;
         #endregion
 
         #region Entry
@@ -51,6 +50,8 @@ namespace Stratagem
         // - private -
         static void gameBoard_Load ( object sender, EventArgs e )
         {
+            DataTable boardStats = new DataTable();
+
             if (!Engine.Start ( ))
             {
                 gameBoard.closeToolStripMenuItem.PerformClick ( );
@@ -72,7 +73,20 @@ namespace Stratagem
                    Engine.Clock.Elapsed,
                    System.Threading.Thread.CurrentThread.ManagedThreadId,
                    boardStats.TableName );
+
+                //  add board stats table to game DataCollections
+                DataCollections.Data.Add ( boardStats.TableName, boardStats );
+
+                loadPlayers ( );
             }
+        }
+
+        private static void loadPlayers ( )
+        {
+            //  load player areas from App.config
+            string[] playersList = ConfigurationManager.AppSettings[ "_players[]" ].Split ( '|' );
+
+            //  instance players and fill player collection
         }
 
         static FileInfo getDataFile ( string FileName )
