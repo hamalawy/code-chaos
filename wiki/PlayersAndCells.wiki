@@ -1,7 +1,7 @@
 #labels Phase-Design,Phase-Support
 Players are represented in code by the Player class (Player.cs).
 
-For development, it would be ideal to display a colored border outlining player areas: red, blue, green, yellow.
+For development, it would be ideal to display a colored border outlining player areas: red, blue, green, yellow. In addition, I would like to see a single neutral-colored outline for the neutral cells.
 
 Player class contains getters/setters for:
   * public string Name
