@@ -9,6 +9,7 @@
 */
 
 using System;
+using System.IO;
 using System.Windows.Forms;
 //
 using Microsoft.Xna.Framework;
@@ -16,11 +17,10 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
 //
+using Engine_01.Interfaces;
 using Engine_01.Runtime;
 //
 using GameLib_01.Extensions;
-using GameLib_01.Interfaces;
-using System.IO;
 
 namespace GameLib_01
 {
@@ -72,7 +72,7 @@ namespace GameLib_01
                     );
                 
                 // Register the service, so components like ContentManager can find it.
-                services.AddService ( graphicsDeviceService );
+                services.AddService ( (IGraphicsDeviceService)graphicsDeviceService );
 
                 // Give derived classes a chance to initialize themselves.
                 Initialize ( );
@@ -83,8 +83,7 @@ namespace GameLib_01
         public void LoadAssets()
         {
             DirectoryInfo _dirContent = new DirectoryInfo ( @"Content\Images" );
-            Content = new ContentManager(services, _dirContent.FullName);
-            
+            Content = new ContentManager ( services, _dirContent.FullName );
 
             Texture2D texture = Content.Load<Texture2D>("stars");
         }
@@ -195,8 +194,6 @@ namespace GameLib_01
                 {
                     graphicsDeviceService.ResetDevice ( ClientSize.Width,
                                                       ClientSize.Height );
-
-                    LoadAssets ( );
                 }
                 catch (Exception e)
                 {

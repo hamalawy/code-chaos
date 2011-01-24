@@ -41,7 +41,7 @@ namespace Engine_01.Runtime
     ///     ITimeSyncedObject may be used to build a class that keeps timed objects
     ///     synchronized with other objects. This is yet to be determined.
     /// </summary>
-    public class EngineClock : IServiceObject
+    public class EngineClock
     {
         #region Events
         public event EventHandler<ClockStartedEventArgs> ClockStarted;
