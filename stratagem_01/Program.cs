@@ -61,10 +61,12 @@ namespace Stratagem
             {
                 //  get fileinfo object for calc spreadsheet
                 FileInfo file = getDataFile ( ConfigurationManager.AppSettings[ "_boardStats" ] );
-
-                // get data
-                string table = DataManager.LoadDBContent ( DataFileType.CSV, file );
-                //boardStats = DataManager.GetTable(table);
+                if (File.Exists(file.FullName))
+                {
+                    // get data
+                    string table = DataManager.LoadDBContent(DataFileType.CSV, file);
+                    boardStats = DataManager.GetTable(table);
+                }
             }
 
             if (boardStats != null)

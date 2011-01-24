@@ -84,7 +84,7 @@ namespace GameLib_01
             DirectoryInfo _dirContent = new DirectoryInfo ( @"Content\Images" );
             Content = new ContentManager(services, _dirContent.FullName);
 
-            Texture2D texture = Content.Load<Texture2D>("stars");
+            Texture2D texture = Content.Load<Texture2D>("Grid");
             return texture;
         }
         protected override void Dispose ( bool disposing )
