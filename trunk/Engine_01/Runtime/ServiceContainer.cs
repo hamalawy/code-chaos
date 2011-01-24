@@ -22,7 +22,7 @@ namespace Engine_01.Runtime
         #region Fields
         public static ServiceContainer Container;
 
-        private static Dictionary<Type, IServiceObject> services;
+        private static Dictionary<Type, Object> services;
         #endregion
 
         #region Init
@@ -30,7 +30,7 @@ namespace Engine_01.Runtime
         static ServiceContainer ( )
         {
             Container = new ServiceContainer ( );
-            services = new Dictionary<Type, IServiceObject> ( );
+            services = new Dictionary<Type, Object> ( );
         }
         //  Private constructor for singleton object.
         private ServiceContainer ( )
@@ -46,7 +46,7 @@ namespace Engine_01.Runtime
         /// <typeparam name="TService">An IServiceObject type.</typeparam>
         /// <param name="Service">The object implementing IServiceObject.</param>
         public void AddService<TService> ( TService Service )
-            where TService : IServiceObject
+            //where TService : IServiceObject
         {
             services.Add ( typeof ( TService ), Service );
         }

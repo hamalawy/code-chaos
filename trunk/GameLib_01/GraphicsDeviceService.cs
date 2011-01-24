@@ -23,7 +23,7 @@ using Engine_01.Interfaces;
 
 namespace GameLib_01
 {
-    public class GraphicsDeviceService : IServiceObject
+    public class GraphicsDeviceService : IGraphicsDeviceService
     {
         #region Fields
         private static GraphicsDeviceService deviceService;

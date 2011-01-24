@@ -43,7 +43,6 @@
     <Compile Include="Class1.cs" />
     <Compile Include="EventArgs\ClockStartedEventArgs.cs" />
     <Compile Include="EventArgs\ClockStoppedEventArgs.cs" />
-    <Compile Include="Interfaces\IServiceObject.cs" />
     <Compile Include="Interfaces\ITimeSyncedObject.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

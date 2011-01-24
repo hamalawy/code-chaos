@@ -69,7 +69,7 @@ namespace Stratagem
             {
                 Invalidate ( );
             };
-            //base.LoadAssets();
+            base.LoadAssets ( );
         }
 
         protected override void BeginDraw ( )

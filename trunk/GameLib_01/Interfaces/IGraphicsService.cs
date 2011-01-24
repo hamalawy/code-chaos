@@ -9,8 +9,7 @@ using Engine_01.Interfaces;
 
 namespace GameLib_01.Interfaces
 {
-    public interface IGraphicsService : IServiceObject, 
-        IGraphicsDeviceService, IDisposable
+    public interface IGraphicsService : IServiceObject, IDisposable
     {
         #region Functions
 
