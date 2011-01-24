@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 //
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace Stratagem
 {
@@ -28,6 +29,11 @@ namespace Stratagem
         #endregion
 
         #region Properties
+        private Texture2D display
+        {
+            get;
+            set;
+        }
         public string Name
         {
             get;

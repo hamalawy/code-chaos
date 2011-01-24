@@ -67,6 +67,10 @@ namespace Stratagem
                     string table = DataManager.LoadDBContent(DataFileType.CSV, file);
                     boardStats = DataManager.GetTable(table);
                 }
+                else
+                {
+                    boardStats = null;
+                }
             }
 
             if (boardStats != null)
