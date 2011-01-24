@@ -69,7 +69,7 @@ namespace Stratagem
             {
                 Invalidate ( );
             };
-            base.LoadAssets();
+            //base.LoadAssets();
         }
 
         protected override void BeginDraw ( )
@@ -140,6 +140,11 @@ namespace Stratagem
 
                 Console.WriteLine ( "Create cell row #{0}", iRow );
             }
+        }
+
+        void GraphicsDevice_DeviceReset ( object sender, EventArgs e )
+        {
+            //throw new NotImplementedException ( );
         }
         #endregion
 
