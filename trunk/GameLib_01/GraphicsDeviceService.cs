@@ -47,7 +47,7 @@ namespace GameLib_01
             parameters.IsFullScreen = false;
 
             graphicsDevice = new GraphicsDevice ( GraphicsAdapter.DefaultAdapter,
-                                                  GraphicsProfile.Reach,
+                                                  GraphicsProfile.HiDef,
                                                   parameters );
         }
         #endregion
