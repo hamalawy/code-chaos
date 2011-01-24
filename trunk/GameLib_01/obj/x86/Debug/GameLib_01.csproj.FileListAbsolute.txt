@@ -22,3 +22,4 @@ C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\stars.xnb
 C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\stars.jpg
 C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\ninja release.xnb
 C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\stars.jpg
+C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\ninja release.xnb

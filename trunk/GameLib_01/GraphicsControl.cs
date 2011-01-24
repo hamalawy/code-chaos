@@ -40,7 +40,7 @@ namespace GameLib_01
 
         protected System.Windows.Forms.Form owner;
         ContentManager Content;
-
+        SpriteBatch SB;
         #endregion
 
         #region Init
@@ -77,15 +77,15 @@ namespace GameLib_01
                 // Give derived classes a chance to initialize themselves.
                 Initialize ( );
             }
-            
             base.OnCreateControl ( );
         }
-        public void LoadAssets()
+        public Texture2D LoadAssets()
         {
             DirectoryInfo _dirContent = new DirectoryInfo ( @"Content\Images" );
-            Content = new ContentManager ( services, _dirContent.FullName );
+            Content = new ContentManager(services, _dirContent.FullName);
 
             Texture2D texture = Content.Load<Texture2D>("stars");
+            return texture;
         }
         protected override void Dispose ( bool disposing )
         {
