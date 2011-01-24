@@ -90,12 +90,12 @@ namespace Stratagem
             //  instance players and fill player collection
             foreach (string playerElement in playersList)
             {
-                object[] _rawPlayerData = ConfigurationManager.AppSettings[playerElement].Split('|');
+                object[] _rawPlayerData = ConfigurationManager.AppSettings[playerElement].Split(':');
 
                 Player player = new Player 
                     ( 
                         playerElement, 
-                        (int[])_rawPlayerData[ 1 ], 
+                        convertToIntArray(_rawPlayerData[ 1 ].ToString().Split('|')), 
                         (string)_rawPlayerData[ 0 ], 
                         _startCreds, 10.00f 
                     );
@@ -109,6 +109,18 @@ namespace Stratagem
 
             //  get fileinfo object for calc spreadsheet
             return new FileInfo ( dir.FullName + FileName );
+        }
+
+        static int[] convertToIntArray ( string[] stringValues )
+        {
+            int[] intArray = new int[ stringValues.Length ];
+
+            foreach(string value in stringValues)
+            {
+                intArray.SetValue(Convert.ToInt32(value), Array.IndexOf(stringValues, value));
+            }
+
+            return intArray;
         }
         #endregion
     }

@@ -82,11 +82,11 @@ namespace GameLib_01
         }
         public void LoadAssets()
         {
-            Content = new ContentManager(services, "Content");
-            DirectoryInfo dir = new DirectoryInfo ( Content.RootDirectory + @"\Images" );
-            FileInfo file = new FileInfo(dir.FullName + @"\stars.xnb");
+            DirectoryInfo _dirContent = new DirectoryInfo ( @"Content\Images" );
+            Content = new ContentManager(services, _dirContent.FullName);
+            
 
-            Texture2D texture = Content.Load<Texture2D>("/Images/stars");
+            Texture2D texture = Content.Load<Texture2D>("stars");
         }
         protected override void Dispose ( bool disposing )
         {
@@ -105,58 +105,37 @@ namespace GameLib_01
 
             if (string.IsNullOrEmpty ( beginDrawError ))
             {
-                // Draw the control using the GraphicsDevice.
+                //  Draw the control using the GraphicsDevice.
                 BeginDraw ( );
                 EndDraw ( );
             }
             else
             {
-                // If BeginDraw failed, show an error message using System.Drawing.
+                //  If BeginDraw failed, show an error message using System.Drawing.
                 PaintUsingSystemDrawing ( e.Graphics, beginDrawError );
             }
         }
 
         string DeviceBeginDraw ( )
         {
-            // If we have no graphics device, we must be running in the designer.
+            //  If we have no graphics device, we must be running in the designer.
             if (graphicsDeviceService == null)
             {
                 return Text + "\n\n" + GetType ( );
             }
 
-            // Make sure the graphics device is big enough, and is not lost.
+            //  Make sure the graphics device is big enough, and is not lost.
             string deviceResetError = HandleDeviceReset ( );
 
             if (!string.IsNullOrEmpty ( deviceResetError ))
             {
                 return deviceResetError;
             }
-            #region Comments
-            //commented out the Viewport in order to determine if this was causing the problem
-            //my un ins with Microsoft code told me this was something extra they put in 
-            //because we arent using multiple controls
-            
-            // Many GraphicsDeviceControl instances can be sharing the same
-            // GraphicsDevice. The device backbuffer will be resized to fit the
-            // largest of these controls. But what if we are currently drawing
-            // a smaller control? To avoid unwanted stretching, we set the
-            // viewport to only use the top left portion of the full backbuffer.
-            /*Viewport viewport = new Viewport();
-            
-            viewport.X = 0;
-            viewport.Y = 0;
-            
 
-            viewport.Width = ClientSize.Width;
-            viewport.Height = ClientSize.Height;
+            //  change mouse coords to be relative to the parent control
+            Mouse.WindowHandle = Handle;
 
-            viewport.MinDepth = 0;
-            viewport.MaxDepth = 1;
-            
-            GraphicsDevice.Viewport = viewport;*/
-            # endregion
-            Mouse.WindowHandle = Handle;// moved the mouse coords to be relative to the WPF
-
+            //  get mouse state from game window
             MouseState mouse = Mouse.GetState ( );
 
             if (GraphicsDevice.Viewport.Bounds.Contains ( mouse.X, mouse.Y ))
@@ -174,9 +153,6 @@ namespace GameLib_01
             try
             {
                 Rectangle vpRectangle = ClientRectangle.ToXNARectangle ( );
-
-                //Rectangle sourceRectangle = new Rectangle ( 0, 0, ClientSize.Width,
-                //                                                ClientSize.Height );
 
                 GraphicsDevice.Present ( vpRectangle, null, Mouse.WindowHandle );
             }
@@ -219,6 +195,8 @@ namespace GameLib_01
                 {
                     graphicsDeviceService.ResetDevice ( ClientSize.Width,
                                                       ClientSize.Height );
+
+                    LoadAssets ( );
                 }
                 catch (Exception e)
                 {
