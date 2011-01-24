@@ -20,6 +20,7 @@ using Engine_01.Runtime;
 //
 using GameLib_01.Extensions;
 using GameLib_01.Interfaces;
+using System.IO;
 
 namespace GameLib_01
 {
@@ -82,7 +83,10 @@ namespace GameLib_01
         public void LoadAssets()
         {
             Content = new ContentManager(services, "Content");
-            Texture2D texture = Content.Load<Texture2D>("Images/stars");
+            DirectoryInfo dir = new DirectoryInfo ( Content.RootDirectory + @"\Images" );
+            FileInfo file = new FileInfo(dir.FullName + @"\stars.xnb");
+
+            Texture2D texture = Content.Load<Texture2D>("/Images/stars");
         }
         protected override void Dispose ( bool disposing )
         {
