@@ -58,10 +58,10 @@ namespace GameLib_01.Data
             return string.Empty;
         }
 
-        /*public static DataTable GetTable ( string TableName )
+        public static DataTable GetTable ( string TableName )
         {
             return dataTables[ TableName ];
-        }*/
+        }
 
         //  =======================================================
         //  private functions

@@ -27,7 +27,7 @@ namespace Stratagem
         private Grid grid;
         private Cell currentTile;
         SpriteBatch SB;
-        Texture2D stars;
+        Texture2D gridLines;
         #endregion
 
         #region Init
@@ -72,7 +72,7 @@ namespace Stratagem
                 Invalidate ( );
             };
             SB = new SpriteBatch(base.GraphicsDevice); 
-            stars = base.LoadAssets ( );
+            gridLines = base.LoadAssets ( );
         }
 
         protected override void BeginDraw ( )
@@ -82,7 +82,10 @@ namespace Stratagem
 
             GraphicsDevice.Clear ( color );
             SB.Begin();
-            SB.Draw(stars, new Vector2(0, 0), Color.White);
+            if (Grid.Visible)
+            {
+                SB.Draw(gridLines, new Vector2(1, 1), Color.White);
+            }
             SB.End();
         }
 
