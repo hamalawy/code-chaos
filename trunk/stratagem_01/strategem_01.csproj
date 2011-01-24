@@ -38,6 +38,10 @@
     <StartupObject>Stratagem.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GameLib_01, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\GameLib_01\bin\x86\Debug\GameLib_01.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86" />
     <Reference Include="System" />
@@ -83,7 +87,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -98,10 +104,6 @@
     <ProjectReference Include="..\Engine_01\Engine_01.csproj">
       <Project>{DF5113DF-84FB-41DC-B105-0B6B8017569C}</Project>
       <Name>Engine_01</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GameLib_01\GameLib_01.csproj">
-      <Project>{9223A9CF-51FF-4E90-B271-9A4463B38F2D}</Project>
-      <Name>GameLib_01</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

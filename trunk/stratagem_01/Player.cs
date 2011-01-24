@@ -16,8 +16,9 @@ namespace Stratagem
     {
         #region Fields
         private readonly string _internalName;
+        private readonly int[] _cellIndexes;
+        private readonly Cell[] cells;
 
-        private int[] _cellIndexes;
         private string name;
         private float credits;
         private float worth;
@@ -38,7 +39,7 @@ namespace Stratagem
         #region Functions
         public Cell GetCell ( int CellNumber )
         {
-            return _cellIndexes[ CellNumber ];
+            return cells[ CellNumber ];
         }
         #endregion
 
