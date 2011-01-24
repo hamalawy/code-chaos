@@ -85,8 +85,21 @@ namespace Stratagem
         {
             //  load player areas from App.config
             string[] playersList = ConfigurationManager.AppSettings[ "_players[]" ].Split ( '|' );
+            float _startCreds = (float)Convert.ToDecimal ( ConfigurationManager.AppSettings[ "_playerCredits" ] );
 
             //  instance players and fill player collection
+            foreach (string playerElement in playersList)
+            {
+                object[] _rawPlayerData = ConfigurationManager.AppSettings[playerElement].Split('|');
+
+                Player player = new Player 
+                    ( 
+                        playerElement, 
+                        (int[])_rawPlayerData[ 1 ], 
+                        (string)_rawPlayerData[ 0 ], 
+                        _startCreds, 10.00f 
+                    );
+            }
         }
 
         static FileInfo getDataFile ( string FileName )
