@@ -84,7 +84,7 @@ namespace Stratagem
             SB.Begin();
             if (Grid.Visible)
             {
-                SB.Draw(gridLines, new Vector2(1, 1), Color.White);
+                SB.Draw(gridLines, new Vector2(0, 0), Color.White);
             }
             SB.End();
         }
