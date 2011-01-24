@@ -26,6 +26,8 @@ namespace Stratagem
         private Rectangle clientArea;
         private Grid grid;
         private Cell currentTile;
+        SpriteBatch SB;
+        Texture2D stars;
         #endregion
 
         #region Init
@@ -69,7 +71,8 @@ namespace Stratagem
             {
                 Invalidate ( );
             };
-            base.LoadAssets ( );
+            SB = new SpriteBatch(base.GraphicsDevice); 
+            stars = base.LoadAssets ( );
         }
 
         protected override void BeginDraw ( )
@@ -78,6 +81,9 @@ namespace Stratagem
                 new Microsoft.Xna.Framework.Color ( 180, 125, 70 );
 
             GraphicsDevice.Clear ( color );
+            SB.Begin();
+            SB.Draw(stars, new Vector2(0, 0), Color.White);
+            SB.End();
         }
 
         protected override void OnCreateControl ( )
