@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 //
+using Microsoft.Xna.Framework;
+//
 #endregion
 
 namespace Stratagem
@@ -16,8 +18,10 @@ namespace Stratagem
     {
         #region Fields
         private readonly string _internalName;
-        private readonly int[] _cellIndexes;
-        private readonly Cell[] cells;
+
+        //private readonly Cell[] cells;
+        private readonly List<Cell> cells;
+        private readonly Rectangle playerArea;
 
         private string name;
         private float credits;
@@ -29,7 +33,8 @@ namespace Stratagem
         {
             _internalName = InternalName;
 
-            _cellIndexes = CellIndexes;
+            cells = getCellsFromIndexes(CellIndexes);
+
             name = Name;
             credits = Credits;
             worth = Worth;
@@ -40,6 +45,20 @@ namespace Stratagem
         public Cell GetCell ( int CellNumber )
         {
             return cells[ CellNumber ];
+        }
+
+        //  =======================================================
+        //  private functions
+        private List<Cell> getCellsFromIndexes ( int[] cellIndexes )
+        {
+            List<Cell> cellList = new List<Cell> ( );
+
+            foreach (int index in cellIndexes)
+            {
+                cellList.Add ( Canvas.CellIndex[ index ] );
+            }
+
+            return cellList;
         }
         #endregion
 
