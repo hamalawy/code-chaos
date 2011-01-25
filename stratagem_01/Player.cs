@@ -34,6 +34,8 @@ namespace Stratagem
             _internalName = InternalName;
 
             cells = getCellsFromIndexes(CellIndexes);
+            playerArea = new Rectangle ( cells[ 0 ].Bounds.X, cells[ 0 ].Bounds.Y,
+                                       cells[ 7 ].Bounds.Right, cells[ 7 ].Bounds.Bottom );
 
             name = Name;
             credits = Credits;
