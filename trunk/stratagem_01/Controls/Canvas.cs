@@ -45,6 +45,7 @@ namespace Stratagem
             grid = new Grid ( 9, 5, Area);
             matrix = new List<Cell[]> ( grid.Rows );
             Cells = new Dictionary<Rectangle, Cell> ( );
+            CellIndex = new List<Cell> ( );
 
             for (int row = 0 ; row < grid.Rows ; row++)
             {
@@ -145,9 +146,10 @@ namespace Stratagem
                     row[ column ] = cell;
 
                     Cells.Add ( cell.Bounds, cell );
+                    CellIndex.Add ( cell );
                 }
 
-                Console.WriteLine ( "Create cell row #{0}", iRow );
+                //Console.WriteLine ( "Create cell row #{0}", iRow );
             }
         }
 
@@ -197,6 +199,12 @@ namespace Stratagem
         }
 
         public Dictionary<Rectangle, Cell> Cells
+        {
+            get;
+            private set;
+        }
+
+        public static List<Cell> CellIndex
         {
             get;
             private set;
