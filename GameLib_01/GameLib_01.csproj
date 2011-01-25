@@ -107,6 +107,7 @@
     </Compile>
     <Compile Include="GraphicsDeviceService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Data\Serializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Content\Content.contentproj">
