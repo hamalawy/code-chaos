@@ -31,3 +31,9 @@ C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\playerArea1.xnb
 C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\playerArea2.xnb
 C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\playerArea3.xnb
 C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\playerArea4.xnb
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\communityBazaar.xnb
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\neutralArea.xnb
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\playerArea1.xnb
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\playerArea2.xnb
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\playerArea3.xnb
+C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\playerArea4.xnb

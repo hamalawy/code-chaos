@@ -37,11 +37,9 @@ namespace Stratagem
             randGenerator = RandomGenerator.Instance;
 
             gameBoard = new frmGameWindow ( canvases );
-            gameBoard.Shown += new EventHandler ( gameBoard_Load );
+            gameBoard.HandleCreated += new EventHandler ( gameBoard_HandleCreated );
 
             canvases = gameBoard.canvases;
-
-            Players = new List<Player> ( );
 
             Application.Run(gameBoard);
         }
@@ -50,7 +48,7 @@ namespace Stratagem
         #region Functions
 
         // - private -
-        static void gameBoard_Load ( object sender, EventArgs e )
+        static void gameBoard_HandleCreated ( object sender, EventArgs e )
         {
             DataTable boardStats = new DataTable();
 
@@ -63,9 +61,10 @@ namespace Stratagem
             {
                 //  get fileinfo object for calc spreadsheet
                 FileInfo file = getDataFile ( ConfigurationManager.AppSettings[ "_boardStats" ] );
-                    // get data
-                    string table = DataManager.LoadDBContent(DataFileType.CSV, file);
-                    boardStats = DataManager.GetTable(table);
+                
+                // get data
+                string table = DataManager.LoadDBContent(DataFileType.CSV, file);
+                boardStats = DataManager.GetTable(table);
             }
 
             if (boardStats != null)
@@ -84,6 +83,8 @@ namespace Stratagem
 
         private static void loadPlayers ( )
         {
+            Dictionary<string, Player> players = new Dictionary<string, Player> ( );
+
             //  load player areas from App.config
             string[] playersList = ConfigurationManager.AppSettings[ "_players[]" ].Split ( '|' );
             float _startCreds = (float)Convert.ToDecimal ( ConfigurationManager.AppSettings[ "_playerCredits" ] );
@@ -101,8 +102,11 @@ namespace Stratagem
                         _startCreds, 10.00f 
                     );
 
-                Players.Add ( player );
+                players.Add ( playerElement, player );
             }
+
+            //  load DataManager with player collection
+            DataManager.CollectionIndex.Add ( "players", players );
         }
 
         static FileInfo getDataFile ( string FileName )
@@ -128,11 +132,6 @@ namespace Stratagem
         #endregion
 
         #region Properties
-        public static List<Player> Players
-        {
-            get;
-            private set;
-        }
         #endregion
     }
 }

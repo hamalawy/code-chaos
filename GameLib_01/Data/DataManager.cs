@@ -6,6 +6,7 @@
 
 #region Using definitions
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -41,6 +42,7 @@ namespace GameLib_01.Data
         static DataManager ( )
         {
             dataTables = new Dictionary<string, DataTable> ( );
+            CollectionIndex = new Dictionary<string, ICollection> ( );
         }
         #endregion
 
@@ -92,6 +94,11 @@ namespace GameLib_01.Data
         #endregion
 
         #region Properties
+        public static Dictionary<string, ICollection> CollectionIndex
+        {
+            get;
+            set;
+        }
         #endregion
     }
 
