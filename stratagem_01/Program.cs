@@ -41,6 +41,8 @@ namespace Stratagem
 
             canvases = gameBoard.canvases;
 
+            Players = new List<Player> ( );
+
             Application.Run(gameBoard);
         }
         #endregion
@@ -105,6 +107,8 @@ namespace Stratagem
                         (string)_rawPlayerData[ 0 ], 
                         _startCreds, 10.00f 
                     );
+
+                Players.Add ( player );
             }
         }
 
@@ -127,6 +131,14 @@ namespace Stratagem
             }
 
             return intArray;
+        }
+        #endregion
+
+        #region Properties
+        public static List<Player> Players
+        {
+            get;
+            private set;
         }
         #endregion
     }
