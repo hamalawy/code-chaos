@@ -79,12 +79,12 @@ namespace GameLib_01
             }
             base.OnCreateControl ( );
         }
-        public Texture2D LoadAssets()
+        public Texture2D LoadAssets(string name)
         {
             DirectoryInfo _dirContent = new DirectoryInfo ( @"Content\Images" );
             Content = new ContentManager(services, _dirContent.FullName);
 
-            Texture2D texture = Content.Load<Texture2D>("Grid");
+            Texture2D texture = Content.Load<Texture2D>(name);
             return texture;
         }
         protected override void Dispose ( bool disposing )

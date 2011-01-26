@@ -90,7 +90,13 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="bin\Debug\Content\Images\communityBazaar.xnb" />
     <None Include="bin\Debug\Content\Images\Grid.xnb" />
+    <None Include="bin\Debug\Content\Images\neutralArea.xnb" />
+    <None Include="bin\Debug\Content\Images\playerArea1.xnb" />
+    <None Include="bin\Debug\Content\Images\playerArea2.xnb" />
+    <None Include="bin\Debug\Content\Images\playerArea3.xnb" />
+    <None Include="bin\Debug\Content\Images\playerArea4.xnb" />
     <None Include="bin\Debug\Content\Images\stars.xnb" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
