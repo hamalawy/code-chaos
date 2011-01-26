@@ -15,6 +15,8 @@ using GameLib_01;
 using Engine_01.Runtime;
 //
 using Stratagem.Runtime;
+using GameLib_01.Data;
+using System.Collections;
 
 namespace Stratagem
 {
@@ -30,7 +32,7 @@ namespace Stratagem
         Texture2D gridLines;
         Texture2D neutralZone;
         Texture2D bazaar;
-        Texture2D[] playerArea;
+        Texture2D[] playerAreas;
         int playerhover = 0;
         #endregion
 
@@ -50,6 +52,7 @@ namespace Stratagem
             matrix = new List<Cell[]> ( grid.Rows );
             Cells = new Dictionary<Rectangle, Cell> ( );
             CellIndex = new List<Cell> ( );
+            playerAreas = new Texture2D[ 4 ];
 
             for (int row = 0 ; row < grid.Rows ; row++)
             {
@@ -76,14 +79,21 @@ namespace Stratagem
             {
                 Invalidate ( );
             };
+
             SB = new SpriteBatch(base.GraphicsDevice); 
+
             gridLines = base.LoadAssets ("Grid");
             neutralZone = base.LoadAssets("neutralArea");
             bazaar = base.LoadAssets("communityBazaar");
-            for (int i = 0; i < 5; i++)
-            {
-                playerArea[i] = base.LoadAssets(String.Format("playerArea{0}",i));
-            }
+
+            //  we could make this accessible to the class if necessary
+            var playerCollection = (Dictionary<string, Player>)DataManager.CollectionIndex[ "players" ];
+
+            var playerImages = ( from images in playerCollection.Keys
+                                 select images )
+                               .ToArray<string> ( );
+
+            playerAreas = base.LoadAssets ( playerImages );
         }
 
         protected override void BeginDraw()

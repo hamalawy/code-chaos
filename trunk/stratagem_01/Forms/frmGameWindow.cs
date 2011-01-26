@@ -32,7 +32,7 @@ namespace Stratagem
             if (canvases == null)
                 canvases = new Dictionary<string, Canvas> ( );
 
-            Canvas newCanvas = AddCanvas ( "base", canvas.ClientSize );
+            Canvas newCanvas = Create ( "base", canvas.ClientSize );
             canvas.Controls.Add(newCanvas);
 
             newCanvas.Location = canvas.ClientRectangle.Location;
@@ -41,9 +41,9 @@ namespace Stratagem
             canvas.Update ( );
         }
         #endregion
-
+        
         #region Functions
-        private Canvas AddCanvas ( string CanvasName, Size CanvasSize )
+        private Canvas Create ( string CanvasName, Size CanvasSize )
         {
             Canvas canvas = new Canvas ( this, CanvasSize );
             canvas.Name = CanvasName;
