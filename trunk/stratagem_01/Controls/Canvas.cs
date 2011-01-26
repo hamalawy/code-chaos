@@ -28,11 +28,14 @@ namespace Stratagem
         private Rectangle clientArea;
         private Grid grid;
         private Cell currentTile;
+        private Rectangle currentArea;
+
         SpriteBatch SB;
         Texture2D gridLines;
         Texture2D neutralZone;
         Texture2D bazaar;
         Texture2D[] playerAreas;
+
         int playerhover = 0;
         #endregion
 
@@ -98,12 +101,13 @@ namespace Stratagem
 
         protected override void BeginDraw()
         {
+            GraphicsDevice.Clear ( Color.Brown );
 
-            GraphicsDevice.Clear ( Color.CornflowerBlue );
             SB.Begin();
             SB.Draw(neutralZone, new Vector2(0, 0), Color.White);
             SB.Draw(bazaar, new Rectangle(this[4, 2].Bounds.X, this[4, 2].Bounds.Y, 
                 this[4, 2].Bounds.Width, this[4, 2].Bounds.Height), Color.White);
+
             if (Grid.Visible)
             {
                 SB.Draw(gridLines, new Vector2(0, 0), Color.White);
@@ -121,28 +125,8 @@ namespace Stratagem
 
         protected override void OnMouseMoved ( object sender, MouseMovedEventArgs e )
         {
-            //Console.WriteLine ( e.Location );
-
-            var cell = ( from tile in Cells.Keys
-                         where tile.Contains(e.Location)
-                         select tile )
-                        .SingleOrDefault ( );
-
-            if (( cell == null ) || ( !Cells.ContainsKey ( cell ) ))
-            {
-                return;
-            }
-
-            if (( currentTile == null ) || ( !currentTile.Equals ( Cells[ cell ] ) ))
-            {
-                ((frmGameWindow)owner).lblCell.Text = String.Format("[{0}][{1}] Cell {2}",
-                    EngineClock.Clock.ToString ( ),
-                    System.Threading.Thread.CurrentThread.ManagedThreadId,
-                    Cells[ cell ].Name );
-
-                currentTile = Cells[ cell ];
-            }
-            
+            checkCurrentTile ( e.Location );
+            checkCurrentArea ( e.Location );
         }
 
         protected override void PaintUsingSystemDrawing ( System.Drawing.Graphics graphics, string text )
@@ -173,6 +157,50 @@ namespace Stratagem
                 }
 
                 //Console.WriteLine ( "Create cell row #{0}", iRow );
+            }
+        }
+
+        private void checkCurrentTile ( Point location )
+        {
+            var cell = ( from tile in Cells.Keys
+                         where tile.Contains ( location )
+                         select tile )
+                        .SingleOrDefault ( );
+
+            if (( cell == null ) || ( !Cells.ContainsKey ( cell ) ))
+            {
+                return;
+            }
+
+            if (( currentTile == null ) || ( !currentTile.Equals ( Cells[ cell ] ) ))
+            {
+                ( (frmGameWindow)owner ).lblCell.Text = String.Format ( "[{0}][{1}] Cell {2}",
+                    EngineClock.Clock.ToString ( ),
+                    System.Threading.Thread.CurrentThread.ManagedThreadId,
+                    Cells[ cell ].Name );
+
+                currentTile = Cells[ cell ];
+            }
+        }
+
+        private void checkCurrentArea ( Point location )
+        {
+            var playerCollection = (Dictionary<string, Player>)DataManager.CollectionIndex[ "players" ];
+
+            var player = ( from players in playerCollection.Values
+                           where players.Area.Contains ( location )
+                           select players )
+                           .SingleOrDefault ( );
+
+            if (player == null)
+            {
+                ( (frmGameWindow)owner ).lblArea.Text = string.Empty;
+                return;
+            }
+
+            if (( currentArea == null ) || ( !currentArea.Equals ( player.Area ) ))
+            {
+                ( (frmGameWindow)owner ).lblArea.Text = player.Name;
             }
         }
 

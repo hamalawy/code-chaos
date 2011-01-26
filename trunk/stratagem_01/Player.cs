@@ -101,6 +101,13 @@ namespace Stratagem
             }
         }
 
+        public Rectangle Area
+        {
+            get
+            {
+                return playerArea;
+            }
+        }
         #endregion
    }
 }

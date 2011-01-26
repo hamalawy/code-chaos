@@ -30,6 +30,7 @@
         {
             this.canvas = new System.Windows.Forms.Panel ( );
             this.panel2 = new System.Windows.Forms.Panel ( );
+            this.lblCell = new System.Windows.Forms.Label ( );
             this.menuStrip1 = new System.Windows.Forms.MenuStrip ( );
             this.gameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ( );
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ( );
@@ -38,7 +39,8 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ( );
             this.gridToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem ( );
             this.panel1 = new System.Windows.Forms.Panel ( );
-            this.lblCell = new System.Windows.Forms.Label ( );
+            this.label1 = new System.Windows.Forms.Label ( );
+            this.lblArea = new System.Windows.Forms.Label ( );
             this.panel2.SuspendLayout ( );
             this.menuStrip1.SuspendLayout ( );
             this.panel1.SuspendLayout ( );
@@ -57,6 +59,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb ( ( (int)( ( (byte)( 64 ) ) ) ), ( (int)( ( (byte)( 64 ) ) ) ), ( (int)( ( (byte)( 64 ) ) ) ) );
+            this.panel2.Controls.Add ( this.lblArea );
+            this.panel2.Controls.Add ( this.label1 );
             this.panel2.Controls.Add ( this.lblCell );
             this.panel2.Controls.Add ( this.menuStrip1 );
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -65,6 +69,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size ( 1016, 208 );
             this.panel2.TabIndex = 0;
+            // 
+            // lblCell
+            // 
+            this.lblCell.AutoSize = true;
+            this.lblCell.Location = new System.Drawing.Point ( 12, 34 );
+            this.lblCell.Name = "lblCell";
+            this.lblCell.Size = new System.Drawing.Size ( 13, 13 );
+            this.lblCell.TabIndex = 2;
+            this.lblCell.Text = "..";
             // 
             // menuStrip1
             // 
@@ -133,14 +146,23 @@
             this.panel1.Size = new System.Drawing.Size ( 1016, 536 );
             this.panel1.TabIndex = 2;
             // 
-            // lblCell
+            // label1
             // 
-            this.lblCell.AutoSize = true;
-            this.lblCell.Location = new System.Drawing.Point ( 12, 34 );
-            this.lblCell.Name = "lblCell";
-            this.lblCell.Size = new System.Drawing.Size ( 35, 13 );
-            this.lblCell.TabIndex = 2;
-            this.lblCell.Text = "label1";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point ( 12, 58 );
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size ( 29, 13 );
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Area";
+            // 
+            // lblArea
+            // 
+            this.lblArea.AutoSize = true;
+            this.lblArea.Location = new System.Drawing.Point ( 47, 58 );
+            this.lblArea.Name = "lblArea";
+            this.lblArea.Size = new System.Drawing.Size ( 13, 13 );
+            this.lblArea.TabIndex = 3;
+            this.lblArea.Text = "..";
             // 
             // frmGameWindow
             // 
@@ -177,6 +199,8 @@
         private System.Windows.Forms.Panel panel1;
         internal System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         internal System.Windows.Forms.Label lblCell;
+        internal System.Windows.Forms.Label lblArea;
+        internal System.Windows.Forms.Label label1;
     }
 }
 

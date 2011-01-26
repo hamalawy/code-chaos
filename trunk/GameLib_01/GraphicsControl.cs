@@ -74,12 +74,9 @@ namespace GameLib_01
                 // Register the service, so components like ContentManager can find it.
                 services.AddService ( (IGraphicsDeviceService)graphicsDeviceService );
 
-                //  set Content Manager
+                //  set Content directory and Manager
                 DirectoryInfo _dirContent = new DirectoryInfo ( @"Content\Images" );
-
-                //  ??? do we really need a new content manager each time we load an image?
                 Content = new ContentManager ( services, _dirContent.FullName );
-
 
                 // Give derived classes a chance to initialize themselves.
                 Initialize ( );
@@ -88,11 +85,6 @@ namespace GameLib_01
         }
         public Texture2D LoadAssets(string name)
         {
-            //DirectoryInfo _dirContent = new DirectoryInfo ( @"Content\Images" );
-            
-            ////  do we really need a new content manager each time we load an image?
-            //Content = new ContentManager(services, _dirContent.FullName);
-
             Texture2D texture = Content.Load<Texture2D>(name);
             return texture;
         }
