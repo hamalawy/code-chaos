@@ -28,6 +28,10 @@ namespace Stratagem
         private Cell currentTile;
         SpriteBatch SB;
         Texture2D gridLines;
+        Texture2D neutralZone;
+        Texture2D bazaar;
+        Texture2D[] playerArea;
+        int playerhover = 0;
         #endregion
 
         #region Init
@@ -73,20 +77,28 @@ namespace Stratagem
                 Invalidate ( );
             };
             SB = new SpriteBatch(base.GraphicsDevice); 
-            gridLines = base.LoadAssets ( );
+            gridLines = base.LoadAssets ("Grid");
+            neutralZone = base.LoadAssets("neutralArea");
+            bazaar = base.LoadAssets("communityBazaar");
+            for (int i = 0; i < 5; i++)
+            {
+                playerArea[i] = base.LoadAssets(String.Format("playerArea{0}",i));
+            }
         }
 
-        protected override void BeginDraw ( )
+        protected override void BeginDraw()
         {
-            Microsoft.Xna.Framework.Color color = 
-                new Microsoft.Xna.Framework.Color ( 180, 125, 70 );
 
-            GraphicsDevice.Clear ( color );
+            GraphicsDevice.Clear ( Color.CornflowerBlue );
             SB.Begin();
+            SB.Draw(neutralZone, new Vector2(0, 0), Color.White);
+            SB.Draw(bazaar, new Rectangle(this[4, 2].Bounds.X, this[4, 2].Bounds.Y, 
+                this[4, 2].Bounds.Width, this[4, 2].Bounds.Height), Color.White);
             if (Grid.Visible)
             {
                 SB.Draw(gridLines, new Vector2(0, 0), Color.White);
             }
+
             SB.End();
         }
 
@@ -120,6 +132,7 @@ namespace Stratagem
 
                 currentTile = Cells[ cell ];
             }
+            
         }
 
         protected override void PaintUsingSystemDrawing ( System.Drawing.Graphics graphics, string text )

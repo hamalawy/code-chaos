@@ -25,3 +25,9 @@ C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\stars.jpg
 C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\ninja release.xnb
 C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\Grid.xnb
 C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\Grid.xnb
+C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\communityBazaar.xnb
+C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\neutralArea.xnb
+C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\playerArea1.xnb
+C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\playerArea2.xnb
+C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\playerArea3.xnb
+C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\playerArea4.xnb
