@@ -28,14 +28,14 @@ namespace Stratagem
         private Rectangle clientArea;
         private Grid grid;
         private Cell currentTile;
-        private Rectangle currentArea;
+        private Rectangle currentArea;  //  we can remove, area is accessible from player
+        private Player currentPlayer;       
 
-        SpriteBatch SB;
-        Texture2D gridLines;
-        Texture2D neutralZone;
-        Texture2D bazaar;
-        Texture2D[] playerAreas;
-        Player areaHover;
+        private SpriteBatch SB;
+        private Texture2D gridLines;
+        private Texture2D neutralZone;
+        private Texture2D bazaar;
+        private Texture2D[] playerAreas;
         #endregion
 
         #region Init
@@ -95,6 +95,8 @@ namespace Stratagem
                                  select images )
                                .ToArray<string> ( );
 
+            //  if we assign these to a Player Texture2D AreaImage we will
+            //  be able to reference these directly as needed by player name
             playerAreas = base.LoadAssets ( playerImages );
         }
 
@@ -102,7 +104,9 @@ namespace Stratagem
         {
             GraphicsDevice.Clear ( Color.Tan );
 
+            //  begin scene
             SB.Begin();
+
             SB.Draw(neutralZone, new Vector2(0, 0), Color.White);
             SB.Draw(bazaar, new Rectangle(this[4, 2].Bounds.X, this[4, 2].Bounds.Y, 
                 this[4, 2].Bounds.Width, this[4, 2].Bounds.Height), Color.White);
@@ -111,10 +115,14 @@ namespace Stratagem
             {
                 SB.Draw(gridLines, new Vector2(0, 0), Color.White);
             }
-            if(areaHover!=null)
+
+            if(currentPlayer!=null)
             {
-                SB.Draw(playerAreas[0], new Vector2(areaHover.Area.X, areaHover.Area.Y), Color.White);
+                //  I think this can be fixed - see my comment in Initialize()
+                SB.Draw(playerAreas[0], new Vector2(currentPlayer.Area.X, currentPlayer.Area.Y), Color.White);
             }
+
+            //  end scene
             SB.End();
         }
 
@@ -198,14 +206,16 @@ namespace Stratagem
             if (player == null)
             {
                 ( (frmGameWindow)owner ).lblArea.Text = string.Empty;
+
                 return;
             }
 
             if (( currentArea == null ) || ( !currentArea.Equals ( player.Area ) ))
             {
                 ( (frmGameWindow)owner ).lblArea.Text = player.Name;
+                currentArea = player.Area; // <-- I was missing this
+                currentPlayer = player; // <-- we need to replace currentArea with currentPlayer
             }
-            areaHover = player;
         }
 
         void GraphicsDevice_DeviceReset ( object sender, EventArgs e )
