@@ -1,2 +1,0 @@
-C:\GameWorks\code-chaos\Content\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\OpenSource\Content\obj\x86\Debug\ResolveAssemblyReference.cache
