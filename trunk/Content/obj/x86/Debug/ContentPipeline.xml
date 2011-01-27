@@ -7,8 +7,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\stars.xnb</Output>
-      <Time>2011-01-21T22:28:31.328125-06:00</Time>
+      <Output>C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\stars.xnb</Output>
+      <Time>2011-01-24T10:03:40.3114587-06:00</Time>
     </Item>
     <Item>
       <Source>Images\ninja release.png</Source>
@@ -16,8 +16,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\ninja release.xnb</Output>
-      <Time>2011-01-21T22:28:31.328125-06:00</Time>
+      <Output>C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\ninja release.xnb</Output>
+      <Time>2011-01-24T10:03:40.3114587-06:00</Time>
     </Item>
     <Item>
       <Source>Images\Grid.png</Source>
@@ -25,8 +25,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\Grid.xnb</Output>
-      <Time>2011-01-24T20:36:15.140625-06:00</Time>
+      <Output>C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\Grid.xnb</Output>
+      <Time>2011-01-24T13:29:53.6856379-06:00</Time>
     </Item>
     <Item>
       <Source>Images\communityBazaar.png</Source>
@@ -34,8 +34,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\communityBazaar.xnb</Output>
-      <Time>2011-01-24T21:46:53.328125-06:00</Time>
+      <Output>C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\communityBazaar.xnb</Output>
+      <Time>2011-01-25T19:01:54.273335-06:00</Time>
     </Item>
     <Item>
       <Source>Images\neutralArea.png</Source>
@@ -43,8 +43,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\neutralArea.xnb</Output>
-      <Time>2011-01-24T21:27:57.640625-06:00</Time>
+      <Output>C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\neutralArea.xnb</Output>
+      <Time>2011-01-25T19:01:54.2703348-06:00</Time>
     </Item>
     <Item>
       <Source>Images\playerArea1.png</Source>
@@ -52,8 +52,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\playerArea1.xnb</Output>
-      <Time>2011-01-24T21:02:07.359375-06:00</Time>
+      <Output>C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\playerArea1.xnb</Output>
+      <Time>2011-01-26T20:12:50.935548-06:00</Time>
     </Item>
     <Item>
       <Source>Images\playerArea2.png</Source>
@@ -61,8 +61,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\playerArea2.xnb</Output>
-      <Time>2011-01-24T21:03:32.15625-06:00</Time>
+      <Output>C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\playerArea2.xnb</Output>
+      <Time>2011-01-25T19:01:54.2993365-06:00</Time>
     </Item>
     <Item>
       <Source>Images\playerArea3.png</Source>
@@ -70,8 +70,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\playerArea3.xnb</Output>
-      <Time>2011-01-24T21:05:13.046875-06:00</Time>
+      <Output>C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\playerArea3.xnb</Output>
+      <Time>2011-01-25T19:01:54.3033367-06:00</Time>
     </Item>
     <Item>
       <Source>Images\playerArea4.png</Source>
@@ -79,8 +79,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\Images\playerArea4.xnb</Output>
-      <Time>2011-01-24T21:05:42.875-06:00</Time>
+      <Output>C:\OpenSource\GameLib_01\bin\x86\Debug\Content\Images\playerArea4.xnb</Output>
+      <Time>2011-01-25T19:01:54.3073369-06:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -88,39 +88,39 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\GameWorks\code-chaos\Content\</RootDirectory>
-      <LoggerRootDirectory>C:\GameWorks\code-chaos\GameLib_01\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\GameWorks\code-chaos\Content\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\GameWorks\code-chaos\GameLib_01\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\OpenSource\Content\</RootDirectory>
+      <LoggerRootDirectory>C:\OpenSource\GameLib_01\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\OpenSource\Content\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\OpenSource\GameLib_01\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
         <Value>2010-08-23T13:41:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
         <Value>2010-08-23T13:41:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
         <Value>2010-08-23T13:41:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
         <Value>2010-08-23T13:41:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
         <Value>2010-08-23T13:41:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\Program Files\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
         <Value>2010-08-23T13:41:18-05:00</Value>
       </Assembly>
       <Assembly>
-        <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2011-01-07T21:05:54.34375-06:00</Value>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2010-12-31T12:04:52.9465912-06:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

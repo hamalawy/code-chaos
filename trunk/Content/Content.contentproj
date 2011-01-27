@@ -81,6 +81,7 @@
       <Name>playerArea3</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Images\playerArea4.png">
       <Name>playerArea4</Name>

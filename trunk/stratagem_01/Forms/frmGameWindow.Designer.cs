@@ -53,7 +53,7 @@
             this.canvas.Location = new System.Drawing.Point ( 2, 1 );
             this.canvas.Name = "canvas";
             this.canvas.Padding = new System.Windows.Forms.Padding ( 3, 1, 3, 1 );
-            this.canvas.Size = new System.Drawing.Size ( 1012, 534 );
+            this.canvas.Size = new System.Drawing.Size ( 1015, 537 );
             this.canvas.TabIndex = 0;
             // 
             // panel2
@@ -143,7 +143,7 @@
             this.panel1.Location = new System.Drawing.Point ( 0, 0 );
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding ( 2, 1, 2, 1 );
-            this.panel1.Size = new System.Drawing.Size ( 1016, 536 );
+            this.panel1.Size = new System.Drawing.Size ( 1013, 533 );
             this.panel1.TabIndex = 2;
             // 
             // label1
@@ -176,7 +176,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmGameWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Strategem 0.0.0001";
+            this.Text = "Strategem 0.0.0002";
             this.panel2.ResumeLayout ( false );
             this.panel2.PerformLayout ( );
             this.menuStrip1.ResumeLayout ( false );
