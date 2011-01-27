@@ -35,8 +35,7 @@ namespace Stratagem
         Texture2D neutralZone;
         Texture2D bazaar;
         Texture2D[] playerAreas;
-
-        int playerhover = 0;
+        Player areaHover;
         #endregion
 
         #region Init
@@ -101,18 +100,21 @@ namespace Stratagem
 
         protected override void BeginDraw()
         {
-            GraphicsDevice.Clear ( Color.Brown );
+            GraphicsDevice.Clear ( Color.Tan );
 
             SB.Begin();
             SB.Draw(neutralZone, new Vector2(0, 0), Color.White);
             SB.Draw(bazaar, new Rectangle(this[4, 2].Bounds.X, this[4, 2].Bounds.Y, 
                 this[4, 2].Bounds.Width, this[4, 2].Bounds.Height), Color.White);
-
+            
             if (Grid.Visible)
             {
                 SB.Draw(gridLines, new Vector2(0, 0), Color.White);
             }
-
+            if(areaHover!=null)
+            {
+                SB.Draw(playerAreas[0], new Vector2(areaHover.Area.X, areaHover.Area.Y), Color.White);
+            }
             SB.End();
         }
 
@@ -162,6 +164,7 @@ namespace Stratagem
 
         private void checkCurrentTile ( Point location )
         {
+            //Console.WriteLine(location);
             var cell = ( from tile in Cells.Keys
                          where tile.Contains ( location )
                          select tile )
@@ -202,6 +205,7 @@ namespace Stratagem
             {
                 ( (frmGameWindow)owner ).lblArea.Text = player.Name;
             }
+            areaHover = player;
         }
 
         void GraphicsDevice_DeviceReset ( object sender, EventArgs e )
