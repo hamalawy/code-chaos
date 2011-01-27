@@ -12,6 +12,7 @@ namespace Stratagem
     {
         #region Fields
         private Rectangle tile;
+        private float[] mfeRating;
         #endregion
 
         #region Init
@@ -33,6 +34,17 @@ namespace Stratagem
         {
             get;
             set;
+        }
+        public float[] MFERating
+        {
+            get
+            {
+                return mfeRating;
+            }
+            set
+            {
+                mfeRating = value;
+            }
         }
         public string Name
         {
