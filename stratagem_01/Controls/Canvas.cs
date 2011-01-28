@@ -28,14 +28,12 @@ namespace Stratagem
         private Rectangle clientArea;
         private Grid grid;
         private Cell currentTile;
-        private Rectangle currentArea;  //  we can remove, area is accessible from player
         private Player currentPlayer;       
 
         private SpriteBatch SB;
         private Texture2D gridLines;
         private Texture2D neutralZone;
         private Texture2D bazaar;
-        private Texture2D[] playerAreas;
         #endregion
 
         #region Init
@@ -54,7 +52,6 @@ namespace Stratagem
             matrix = new List<Cell[]> ( grid.Rows );
             Cells = new Dictionary<Rectangle, Cell> ( );
             CellIndex = new List<Cell> ( );
-            playerAreas = new Texture2D[ 4 ];
 
             for (int row = 0 ; row < grid.Rows ; row++)
             {
@@ -97,7 +94,13 @@ namespace Stratagem
 
             //  if we assign these to a Player Texture2D AreaImage we will
             //  be able to reference these directly as needed by player name
-            playerAreas = base.LoadAssets ( playerImages );
+            Texture2D[] playerAreas = base.LoadAssets ( playerImages );
+
+            //  load each player's area texture
+            playerCollection[ "playerArea1" ].AreaTexture = playerAreas[ 0 ];
+            playerCollection[ "playerArea2" ].AreaTexture = playerAreas[ 1 ];
+            playerCollection[ "playerArea3" ].AreaTexture = playerAreas[ 2 ];
+            playerCollection[ "playerArea4" ].AreaTexture = playerAreas[ 3 ];
         }
 
         protected override void BeginDraw()
@@ -118,8 +121,9 @@ namespace Stratagem
 
             if(currentPlayer!=null)
             {
-                //  I think this can be fixed - see my comment in Initialize()
-                SB.Draw(playerAreas[0], new Vector2(currentPlayer.Area.X, currentPlayer.Area.Y), Color.White);
+                //  by adding AreaTexture property we have access
+                //  to each player's area display texture
+                SB.Draw(currentPlayer.AreaTexture, new Vector2(currentPlayer.Area.X, currentPlayer.Area.Y), Color.White);
             }
 
             //  end scene
@@ -135,8 +139,8 @@ namespace Stratagem
 
         protected override void OnMouseMoved ( object sender, MouseMovedEventArgs e )
         {
-            checkCurrentTile ( e.Location );
-            checkCurrentArea ( e.Location );
+            checkCurrentCell ( e.Location );
+            checkCurrentPlayer ( e.Location );
         }
 
         protected override void PaintUsingSystemDrawing ( System.Drawing.Graphics graphics, string text )
@@ -170,7 +174,7 @@ namespace Stratagem
             }
         }
 
-        private void checkCurrentTile ( Point location )
+        private void checkCurrentCell ( Point location )
         {
             //Console.WriteLine(location);
             var cell = ( from tile in Cells.Keys
@@ -194,7 +198,7 @@ namespace Stratagem
             }
         }
 
-        private void checkCurrentArea ( Point location )
+        private void checkCurrentPlayer ( Point location )
         {
             var playerCollection = (Dictionary<string, Player>)DataManager.CollectionIndex[ "players" ];
 
@@ -206,15 +210,15 @@ namespace Stratagem
             if (player == null)
             {
                 ( (frmGameWindow)owner ).lblArea.Text = string.Empty;
+                currentPlayer = null;
 
                 return;
             }
 
-            if (( currentArea == null ) || ( !currentArea.Equals ( player.Area ) ))
+            if (( currentPlayer == null ) || ( !currentPlayer.Area.Equals ( player.Area ) ))
             {
                 ( (frmGameWindow)owner ).lblArea.Text = player.Name;
-                currentArea = player.Area; // <-- I was missing this
-                currentPlayer = player; // <-- we need to replace currentArea with currentPlayer
+                currentPlayer = player;
             }
         }
 
